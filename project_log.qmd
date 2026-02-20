@@ -92,6 +92,7 @@ tbl
 ## R Sampler
 
 **Status:** In Progress
+**Repos:** [afsc-assessments/sampler](https://github.com/afsc-assessments/sampler) · [jimianelli/sampler](https://github.com/jimianelli/sampler)
 **Goal:** Validate and extend the R-based sampler.
 
 ### Sub-tasks
@@ -113,6 +114,7 @@ tbl
 ## spmR
 
 **Status:** In Progress
+**Repo:** [afsc-assessments/spmR](https://github.com/afsc-assessments/spmR)
 **Goal:** Test and extend the `spmR` surplus production model package.
 
 ### Sub-tasks
@@ -133,6 +135,7 @@ tbl
 ## WtAgeRE (Age-error)
 
 **Status:** To Do
+**Repo:** [afsc-assessments/ebswp](https://github.com/afsc-assessments/ebswp)
 **Goal:** Develop age-error functionality for the `WtAgeRE` model.
 
 ### Sub-tasks
@@ -152,6 +155,7 @@ tbl
 ## ADMB pm.tpl (2025 Update)
 
 **Status:** In Progress
+**Repo:** [afsc-assessments/ebswp](https://github.com/afsc-assessments/ebswp)
 **Goal:** Update the vanilla 2024 `pm.tpl` ADMB run to use 2025 data.
 
 ### Sub-tasks
@@ -172,6 +176,7 @@ tbl
 ## SporC — Age-error Specs
 
 **Status:** To Do
+**Repo:** [jimianelli/SPoRC](https://github.com/jimianelli/SPoRC)
 **Goal:** Define and implement age-error specifications within SporC.
 
 ### Sub-tasks
@@ -191,6 +196,7 @@ tbl
 ## SporC — Two-area Version
 
 **Status:** In Progress
+**Repo:** [jimianelli/SPoRC](https://github.com/jimianelli/SPoRC)
 **Goal:** Build and validate a two-area spatial version of SporC.
 
 ### Sub-tasks

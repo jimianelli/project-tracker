@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jim's Project Hub</title>
+  <style>
+    :root {
+      --bg: #f0f2f5;
+      --card-bg: #ffffff;
+      --header: #3a4a5c;
+      --accent: #3e7fc1;
+      --tag-r: #3e7fc1;
+      --tag-admb: #7b5ea7;
+      --tag-sporc: #c06a2a;
+      --tag-admin: #888;
+      --in-progress: #d6a435;
+      --todo: #6c8ebf;
+      --radius: 10px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: #222;
+      min-height: 100vh;
+      padding: 32px 24px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 36px;
+      border-bottom: 2px solid #dde0e8;
+      padding-bottom: 20px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--header);
+      letter-spacing: -0.02em;
+    }
+    header p {
+      color: #666;
+      margin-top: 6px;
+      font-size: 0.9rem;
+    }
+    .nav-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .nav-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s, transform 0.1s;
+      border-top: 4px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.15); transform: translateY(-2px); }
+    .nav-card.kanban { border-top-color: #d6a435; }
+    .nav-card.log    { border-top-color: #5a9c6f; }
+    .nav-card-icon { font-size: 1.6rem; margin-bottom: 4px; }
+    .nav-card h2 { font-size: 1.05rem; font-weight: 700; color: var(--header); }
+    .nav-card p  { font-size: 0.82rem; color: #777; line-height: 1.45; }
+    .nav-card .nav-arrow {
+      margin-top: auto;
+      padding-top: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .nav-card.kanban .nav-arrow { color: #d6a435; }
+    .nav-card.log    .nav-arrow { color: #5a9c6f; }
+
+    h2.section { font-size: 1rem; font-weight: 700; color: var(--header); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .proj-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 14px 16px;
+    }
+    .proj-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .proj-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .proj-name { font-size: 0.88rem; font-weight: 700; color: #222; }
+    .proj-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 4px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .status-ip   { background: #fef3cd; color: #856404; }
+    .status-todo { background: #dde4f0; color: #3a4a5c; }
+    .proj-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+    .proj-link {
+      font-size: 0.68rem;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 4px;
+      padding: 1px 6px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .proj-link:hover { opacity: 0.85; }
+    .proj-link.admb { background: var(--tag-admb); }
+    .proj-link.sporc { background: var(--tag-sporc); }
+    .proj-tasks { font-size: 0.75rem; color: #888; margin-top: 5px; line-height: 1.5; }
+
+    .footer { font-size: 0.75rem; color: #aaa; margin-top: 32px; border-top: 1px solid #dde0e8; padding-top: 16px; }
+    .footer a { color: #888; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jim's Project Hub</h1>
+  <p>Active work tracker — kanban board, project log, and repository links.</p>
+</header>
+
+<h2 class="section">Tools</h2>
+<div class="nav-cards">
+  <a class="nav-card kanban" href="kanban.html">
+    <div class="nav-card-icon">📋</div>
+    <h2>Kanban Board</h2>
+    <p>Drag-and-drop task board. To Do → In Progress → Blocked → Done. Changes save in your browser.</p>
+    <div class="nav-arrow">Open board →</div>
+  </a>
+  <a class="nav-card log" href="project_log.html">
+    <div class="nav-card-icon">📓</div>
+    <h2>Project Log</h2>
+    <p>Rendered Quarto document with sub-task checklists, progress notes, and weekly check-in template.</p>
+    <div class="nav-arrow">Open log →</div>
+  </a>
+</div>
+
+<h2 class="section">Projects &amp; Repos</h2>
+<div class="projects-grid">
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#d6a435"></div>
+      <span class="proj-name">R Sampler</span>
+      <span class="proj-status status-ip">In Progress</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link" href="https://github.com/afsc-assessments/sampler" target="_blank" rel="noopener">afsc-assessments/sampler</a>
+      <a class="proj-link" href="https://github.com/jimianelli/sampler" target="_blank" rel="noopener">jimianelli/sampler</a>
+    </div>
+    <div class="proj-tasks">Test · age-error · data pulls</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#d6a435"></div>
+      <span class="proj-name">spmR</span>
+      <span class="proj-status status-ip">In Progress</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link" href="https://github.com/afsc-assessments/spmR" target="_blank" rel="noopener">afsc-assessments/spmR</a>
+    </div>
+    <div class="proj-tasks">Alt inputs · speed · F-SPR calcs</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#6c8ebf"></div>
+      <span class="proj-name">WtAgeRE</span>
+      <span class="proj-status status-todo">To Do</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link" href="https://github.com/afsc-assessments/ebswp" target="_blank" rel="noopener">afsc-assessments/ebswp</a>
+    </div>
+    <div class="proj-tasks">Age-error development</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#d6a435"></div>
+      <span class="proj-name">ADMB pm.tpl</span>
+      <span class="proj-status status-ip">In Progress</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link admb" href="https://github.com/afsc-assessments/ebswp" target="_blank" rel="noopener">afsc-assessments/ebswp</a>
+    </div>
+    <div class="proj-tasks">Vanilla 2024 run → 2025 data</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#6c8ebf"></div>
+      <span class="proj-name">SporC – Age-error</span>
+      <span class="proj-status status-todo">To Do</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link sporc" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">jimianelli/SPoRC</a>
+    </div>
+    <div class="proj-tasks">Draft specs · implement</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#d6a435"></div>
+      <span class="proj-name">SporC – Two-area</span>
+      <span class="proj-status status-ip">In Progress</span>
+    </div>
+    <div class="proj-links">
+      <a class="proj-link sporc" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">jimianelli/SPoRC</a>
+    </div>
+    <div class="proj-tasks">Russian results · defaults</div>
+  </div>
+
+  <div class="proj-card">
+    <div class="proj-header">
+      <div class="proj-dot" style="background:#6c8ebf"></div>
+      <span class="proj-name">Admin</span>
+      <span class="proj-status status-todo">To Do</span>
+    </div>
+    <div class="proj-tasks">Tomo form</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Source: <a href="https://github.com/jimianelli/project-tracker" target="_blank" rel="noopener">github.com/jimianelli/project-tracker</a>
+  &nbsp;|&nbsp; Render log: <code>quarto render project_log.qmd</code> then commit <code>project_log.html</code>
+</div>
+
+</body>
+</html>
