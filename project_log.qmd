@@ -26,7 +26,10 @@ library(kableExtra)
 This document tracks active projects, sub-tasks, and progress notes.
 Update the status column and log entries regularly to maintain momentum.
 
-```{r summary-table}
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Project Status Summary"
+
 projects <- data.frame(
   Project = c(
     "R Sampler",
@@ -58,14 +61,28 @@ projects <- data.frame(
   )
 )
 
-kable(projects, caption = "Project Status Summary", align = c("l","c","c","l")) |>
-  kable_styling(bootstrap_options = c("striped","hover","condensed"), full_width = FALSE) |>
-  column_spec(2,
-    color = ifelse(projects$Status == "Done", "white",
-             ifelse(projects$Status == "In Progress", "white", "#555")),
-    background = ifelse(projects$Status == "Done", "#5a9c6f",
-                 ifelse(projects$Status == "In Progress", "#d6a435", "#ddd"))
-  )
+tbl <- kable(projects, align = c("l","c","c","l"))
+
+if (knitr::is_html_output()) {
+  tbl <- tbl |>
+    kable_styling(
+      bootstrap_options = c("striped", "hover", "condensed"),
+      full_width = FALSE
+    ) |>
+    column_spec(2,
+      color = ifelse(projects$Status == "Done", "white",
+               ifelse(projects$Status == "In Progress", "white", "#555")),
+      background = ifelse(projects$Status == "Done", "#5a9c6f",
+                   ifelse(projects$Status == "In Progress", "#d6a435", "#ddd"))
+    )
+} else {
+  tbl <- tbl |>
+    kable_styling(
+      latex_options = c("striped", "hold_position"),
+      full_width = FALSE
+    )
+}
+tbl
 ```
 
 ---
