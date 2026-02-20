@@ -13,6 +13,11 @@
 # macOS
 .DS_Store
 
-# Rendered outputs (optional — remove these lines if you want to commit rendered HTML/PDF)
-# project_log.html
-# project_log.pdf
+# LaTeX intermediate files (not needed)
+*.aux
+*.log
+*.tex
+*.toc
+
+# Commit project_log.html for GitHub Pages (do not ignore it)
+# Commit project_log.pdf if you want a downloadable PDF link
