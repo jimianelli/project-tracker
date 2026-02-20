@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jim's Project Kanban</title>
+  <style>
+    :root {
+      --bg: #f0f2f5;
+      --col-bg: #e4e6ea;
+      --col-header: #3a4a5c;
+      --card-bg: #ffffff;
+      --card-border: #d0d5dd;
+      --accent-todo: #6c8ebf;
+      --accent-progress: #d6a435;
+      --accent-done: #5a9c6f;
+      --accent-blocked: #c0534a;
+      --tag-r: #3e7fc1;
+      --tag-admb: #7b5ea7;
+      --tag-admin: #888;
+      --shadow: 0 1px 4px rgba(0,0,0,0.12);
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: #222;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    header {
+      margin-bottom: 24px;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--col-header);
+    }
+    header p {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+    .board {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      overflow-x: auto;
+      padding-bottom: 16px;
+    }
+    .column {
+      flex: 0 0 270px;
+      background: var(--col-bg);
+      border-radius: var(--radius);
+      padding: 12px;
+      min-height: 200px;
+    }
+    .col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+    .col-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .col-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--col-header);
+    }
+    .col-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      background: rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 1px 7px;
+      color: #555;
+      font-weight: 600;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      cursor: grab;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.15s, transform 0.1s;
+      user-select: none;
+    }
+    .card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+    .card.dragging { opacity: 0.5; transform: rotate(1.5deg); }
+    .column.drag-over { outline: 2px dashed #aaa; background: #dde0e8; }
+    .card-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #222;
+      line-height: 1.35;
+    }
+    .card-project {
+      font-size: 0.73rem;
+      color: #888;
+      margin-top: 3px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 7px;
+    }
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+    .tag-R    { background: var(--tag-r); }
+    .tag-ADMB { background: var(--tag-admb); }
+    .tag-Admin{ background: var(--tag-admin); }
+    .tag-SporC{ background: #c06a2a; }
+    .notes-area {
+      display: none;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #555;
+      border-top: 1px solid #eee;
+      padding-top: 6px;
+    }
+    .notes-area textarea {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 4px 6px;
+      font-size: 0.78rem;
+      resize: vertical;
+      min-height: 50px;
+      font-family: inherit;
+      color: #333;
+    }
+    .card-expand {
+      font-size: 0.7rem;
+      color: #aaa;
+      cursor: pointer;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    .card-expand:hover { color: #555; }
+    .add-card-btn {
+      width: 100%;
+      background: none;
+      border: 1px dashed #bbb;
+      border-radius: var(--radius);
+      padding: 7px;
+      font-size: 0.8rem;
+      color: #999;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.1s;
+    }
+    .add-card-btn:hover { background: rgba(0,0,0,0.04); color: #555; }
+    .add-card-form { display: none; margin-top: 6px; }
+    .add-card-form input {
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 6px 8px;
+      font-size: 0.82rem;
+      font-family: inherit;
+    }
+    .add-card-form .form-row {
+      display: flex; gap: 6px; margin-top: 6px;
+    }
+    .add-card-form button {
+      flex: 1;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+    .btn-add { background: var(--col-header); color: #fff; }
+    .btn-cancel { background: #ddd; color: #555; }
+    footer {
+      margin-top: 28px;
+      font-size: 0.75rem;
+      color: #aaa;
+      text-align: center;
+    }
+    .legend {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 0.75rem; color: #666;
+    }
+    .legend-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Jim's Project Board</h1>
+  <p>Last updated: <span id="lastUpdated">—</span> &nbsp;|&nbsp; Drag cards between columns to update status &nbsp;|&nbsp; Click "notes" to add comments</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--tag-r)"></div> R</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--tag-admb)"></div> ADMB</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--tag-admin)"></div> Admin</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c06a2a"></div> SporC</div>
+</div>
+
+<div class="board" id="board">
+
+  <!-- TO DO -->
+  <div class="column" id="col-todo" data-col="todo">
+    <div class="col-header">
+      <div class="col-dot" style="background:var(--accent-todo)"></div>
+      <span class="col-title">To Do</span>
+      <span class="col-count" id="count-todo">0</span>
+    </div>
+    <div class="cards" id="cards-todo">
+
+      <div class="card" draggable="true" data-id="c1">
+        <div class="card-title">Add age-error to sampler</div>
+        <div class="card-project">R Sampler</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c2">
+        <div class="card-title">Do data pulls needed</div>
+        <div class="card-project">R Sampler</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c3">
+        <div class="card-title">Alternative inputs for spmR</div>
+        <div class="card-project">spmR</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c4">
+        <div class="card-title">Speed comparisons</div>
+        <div class="card-project">spmR</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c5">
+        <div class="card-title">F-SPR calcs in R?</div>
+        <div class="card-project">spmR</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c6">
+        <div class="card-title">Develop age-error for WtAgeRE</div>
+        <div class="card-project">WtAgeRE</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c7">
+        <div class="card-title">Fill out Tomo form</div>
+        <div class="card-project">Admin</div>
+        <div class="card-tags"><span class="tag tag-Admin">Admin</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c8">
+        <div class="card-title">Age-error specs in SporC</div>
+        <div class="card-project">SporC</div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c9">
+        <div class="card-title">Check Russian assessment results</div>
+        <div class="card-project">SporC – Two-area</div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c10">
+        <div class="card-title">Develop defaults for two-area SporC</div>
+        <div class="card-project">SporC – Two-area</div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+    </div>
+    <button class="add-card-btn" onclick="showAddForm('todo')">+ Add card</button>
+    <div class="add-card-form" id="addform-todo">
+      <input type="text" id="newtitle-todo" placeholder="Card title…" />
+      <div class="form-row">
+        <button class="btn-add" onclick="addCard('todo')">Add</button>
+        <button class="btn-cancel" onclick="hideAddForm('todo')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- IN PROGRESS -->
+  <div class="column" id="col-progress" data-col="progress">
+    <div class="col-header">
+      <div class="col-dot" style="background:var(--accent-progress)"></div>
+      <span class="col-title">In Progress</span>
+      <span class="col-count" id="count-progress">0</span>
+    </div>
+    <div class="cards" id="cards-progress">
+
+      <div class="card" draggable="true" data-id="c11">
+        <div class="card-title">Test sampler in R</div>
+        <div class="card-project">R Sampler</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c12">
+        <div class="card-title">Test spmR</div>
+        <div class="card-project">spmR</div>
+        <div class="card-tags"><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c13">
+        <div class="card-title">Vanilla 2024 ADMB pm.tpl → 2025 data</div>
+        <div class="card-project">ADMB pm.tpl</div>
+        <div class="card-tags"><span class="tag tag-ADMB">ADMB</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c14">
+        <div class="card-title">Two-area version of SporC</div>
+        <div class="card-project">SporC – Two-area</div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+    </div>
+    <button class="add-card-btn" onclick="showAddForm('progress')">+ Add card</button>
+    <div class="add-card-form" id="addform-progress">
+      <input type="text" id="newtitle-progress" placeholder="Card title…" />
+      <div class="form-row">
+        <button class="btn-add" onclick="addCard('progress')">Add</button>
+        <button class="btn-cancel" onclick="hideAddForm('progress')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEW / BLOCKED -->
+  <div class="column" id="col-review" data-col="review">
+    <div class="col-header">
+      <div class="col-dot" style="background:var(--accent-blocked)"></div>
+      <span class="col-title">Blocked / Waiting</span>
+      <span class="col-count" id="count-review">0</span>
+    </div>
+    <div class="cards" id="cards-review">
+    </div>
+    <button class="add-card-btn" onclick="showAddForm('review')">+ Add card</button>
+    <div class="add-card-form" id="addform-review">
+      <input type="text" id="newtitle-review" placeholder="Card title…" />
+      <div class="form-row">
+        <button class="btn-add" onclick="addCard('review')">Add</button>
+        <button class="btn-cancel" onclick="hideAddForm('review')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DONE -->
+  <div class="column" id="col-done" data-col="done">
+    <div class="col-header">
+      <div class="col-dot" style="background:var(--accent-done)"></div>
+      <span class="col-title">Done</span>
+      <span class="col-count" id="count-done">0</span>
+    </div>
+    <div class="cards" id="cards-done">
+    </div>
+    <button class="add-card-btn" onclick="showAddForm('done')">+ Add card</button>
+    <div class="add-card-form" id="addform-done">
+      <input type="text" id="newtitle-done" placeholder="Card title…" />
+      <div class="form-row">
+        <button class="btn-add" onclick="addCard('done')">Add</button>
+        <button class="btn-cancel" onclick="hideAddForm('done')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Changes are saved in your browser — reopen this file to see them persist. &nbsp;|&nbsp; Tip: add this to your bookmarks bar for quick daily check-ins.</footer>
+
+<script>
+  let dragCard = null;
+
+  function updateCounts() {
+    ['todo','progress','review','done'].forEach(col => {
+      const n = document.getElementById('cards-' + col).querySelectorAll('.card').length;
+      document.getElementById('count-' + col).textContent = n;
+    });
+  }
+
+  function saveState() {
+    const state = {};
+    ['todo','progress','review','done'].forEach(col => {
+      const container = document.getElementById('cards-' + col);
+      state[col] = Array.from(container.querySelectorAll('.card')).map(card => ({
+        id: card.dataset.id,
+        title: card.querySelector('.card-title').textContent,
+        project: card.querySelector('.card-project') ? card.querySelector('.card-project').textContent : '',
+        tags: Array.from(card.querySelectorAll('.tag')).map(t => t.textContent),
+        notes: card.querySelector('textarea') ? card.querySelector('textarea').value : ''
+      }));
+    });
+    localStorage.setItem('kanban_state', JSON.stringify(state));
+    localStorage.setItem('kanban_updated', new Date().toLocaleString());
+    document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+  }
+
+  function loadState() {
+    const saved = localStorage.getItem('kanban_state');
+    const updated = localStorage.getItem('kanban_updated');
+    if (updated) document.getElementById('lastUpdated').textContent = updated;
+    else document.getElementById('lastUpdated').textContent = 'Never saved (use drag to save)';
+    if (!saved) { updateCounts(); return; }
+    const state = JSON.parse(saved);
+    // Only restore positions (move existing cards), don't rebuild from scratch
+    ['todo','progress','review','done'].forEach(col => {
+      const container = document.getElementById('cards-' + col);
+      (state[col] || []).forEach(item => {
+        const existing = document.querySelector('[data-id="' + item.id + '"]');
+        if (existing) {
+          container.appendChild(existing);
+          if (existing.querySelector('textarea')) existing.querySelector('textarea').value = item.notes || '';
+        }
+      });
+    });
+    updateCounts();
+  }
+
+  // Drag and drop
+  document.addEventListener('dragstart', e => {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    dragCard = card;
+    setTimeout(() => card.classList.add('dragging'), 0);
+  });
+  document.addEventListener('dragend', e => {
+    if (dragCard) { dragCard.classList.remove('dragging'); dragCard = null; }
+    document.querySelectorAll('.column').forEach(c => c.classList.remove('drag-over'));
+    saveState(); updateCounts();
+  });
+  document.querySelectorAll('.column').forEach(col => {
+    col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('drag-over'); });
+    col.addEventListener('dragleave', () => col.classList.remove('drag-over'));
+    col.addEventListener('drop', e => {
+      e.preventDefault();
+      col.classList.remove('drag-over');
+      if (dragCard) {
+        const cardsDiv = col.querySelector('.cards');
+        cardsDiv.appendChild(dragCard);
+      }
+    });
+  });
+
+  // Notes toggle
+  function toggleNotes(el) {
+    const notesArea = el.nextElementSibling;
+    const open = notesArea.style.display === 'block';
+    notesArea.style.display = open ? 'none' : 'block';
+    el.textContent = open ? '▸ notes' : '▾ notes';
+  }
+
+  // Add card
+  function showAddForm(col) {
+    document.getElementById('addform-' + col).style.display = 'block';
+    document.getElementById('newtitle-' + col).focus();
+  }
+  function hideAddForm(col) {
+    document.getElementById('addform-' + col).style.display = 'none';
+    document.getElementById('newtitle-' + col).value = '';
+  }
+  function addCard(col) {
+    const titleEl = document.getElementById('newtitle-' + col);
+    const title = titleEl.value.trim();
+    if (!title) return;
+    const id = 'c_' + Date.now();
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.draggable = true;
+    card.dataset.id = id;
+    card.innerHTML = `
+      <div class="card-title">${title}</div>
+      <div class="card-project">—</div>
+      <div class="card-tags"></div>
+      <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+      <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+    `;
+    document.getElementById('cards-' + col).appendChild(card);
+    hideAddForm(col);
+    saveState(); updateCounts();
+  }
+
+  // Enter key in add form
+  ['todo','progress','review','done'].forEach(col => {
+    const inp = document.getElementById('newtitle-' + col);
+    if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') addCard(col); });
+  });
+
+  // Auto-save notes on change
+  document.addEventListener('input', e => {
+    if (e.target.tagName === 'TEXTAREA') saveState();
+  });
+
+  // Init
+  loadState();
+  updateCounts();
+</script>
+</body>
+</html>

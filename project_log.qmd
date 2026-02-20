@@ -1,0 +1,236 @@
+---
+title: "Jim's Project Log"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Projects"
+    theme: cosmo
+    code-fold: true
+    self-contained: true
+  pdf:
+    toc: true
+execute:
+  echo: false
+  warning: false
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+```
+
+# Overview
+
+This document tracks active projects, sub-tasks, and progress notes.
+Update the status column and log entries regularly to maintain momentum.
+
+```{r summary-table}
+projects <- data.frame(
+  Project = c(
+    "R Sampler",
+    "spmR",
+    "WtAgeRE",
+    "ADMB pm.tpl",
+    "SporC (age-error)",
+    "SporC (two-area)",
+    "Admin"
+  ),
+  Status = c(
+    "In Progress",
+    "In Progress",
+    "To Do",
+    "In Progress",
+    "To Do",
+    "In Progress",
+    "To Do"
+  ),
+  Priority = c("High","High","Medium","High","Medium","High","Low"),
+  Notes = c(
+    "Testing underway; age-error and data pulls pending",
+    "Testing underway; alt inputs, speed, F-SPR needed",
+    "Age-error development not yet started",
+    "Updating 2024 base run to 2025 data",
+    "Specs needed before implementation",
+    "Check Russian results; develop defaults",
+    "Tomo form outstanding"
+  )
+)
+
+kable(projects, caption = "Project Status Summary", align = c("l","c","c","l")) |>
+  kable_styling(bootstrap_options = c("striped","hover","condensed"), full_width = FALSE) |>
+  column_spec(2,
+    color = ifelse(projects$Status == "Done", "white",
+             ifelse(projects$Status == "In Progress", "white", "#555")),
+    background = ifelse(projects$Status == "Done", "#5a9c6f",
+                 ifelse(projects$Status == "In Progress", "#d6a435", "#ddd"))
+  )
+```
+
+---
+
+# Projects
+
+## R Sampler
+
+**Status:** In Progress
+**Goal:** Validate and extend the R-based sampler.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Core testing of sampler | 🔄 In Progress |
+| Add age-error module | ⬜ To Do |
+| Data pulls required for testing | ⬜ To Do |
+
+### Progress Notes
+
+<!-- Add dated entries below as you work on this project -->
+
+> *2026-02-20 — Project log initiated. Core testing is the current focus.*
+
+---
+
+## spmR
+
+**Status:** In Progress
+**Goal:** Test and extend the `spmR` surplus production model package.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Core testing | 🔄 In Progress |
+| Alternative model inputs | ⬜ To Do |
+| Speed comparisons vs. ADMB | ⬜ To Do |
+| F-SPR calculations in R | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Project log initiated.*
+
+---
+
+## WtAgeRE (Age-error)
+
+**Status:** To Do
+**Goal:** Develop age-error functionality for the `WtAgeRE` model.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Design age-error specification | ⬜ To Do |
+| Implement in model | ⬜ To Do |
+| Test and validate | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Project log initiated. Not yet started.*
+
+---
+
+## ADMB pm.tpl (2025 Update)
+
+**Status:** In Progress
+**Goal:** Update the vanilla 2024 `pm.tpl` ADMB run to use 2025 data.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Confirm 2024 base run is clean | ⬜ To Do |
+| Swap in 2025 data inputs | ⬜ To Do |
+| Verify model convergence | ⬜ To Do |
+| Document changes | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Project log initiated.*
+
+---
+
+## SporC — Age-error Specs
+
+**Status:** To Do
+**Goal:** Define and implement age-error specifications within SporC.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Draft age-error specs document | ⬜ To Do |
+| Review with team | ⬜ To Do |
+| Implement in SporC | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Project log initiated. Specs need to be drafted first.*
+
+---
+
+## SporC — Two-area Version
+
+**Status:** In Progress
+**Goal:** Build and validate a two-area spatial version of SporC.
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Develop two-area framework | 🔄 In Progress |
+| Review Russian assessment results | ⬜ To Do |
+| Develop default parameter values | ⬜ To Do |
+| Validate against single-area results | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Project log initiated.*
+
+---
+
+## Admin
+
+**Status:** To Do
+
+### Sub-tasks
+
+| Task | Status |
+|------|--------|
+| Fill out Tomo form | ⬜ To Do |
+
+### Progress Notes
+
+> *2026-02-20 — Outstanding item.*
+
+---
+
+# Weekly Check-in Template
+
+Use this section at the start of each week to log what you worked on and what's next.
+
+## Week of: ___________
+
+**Completed this week:**
+
+-
+
+**In progress / carried forward:**
+
+-
+
+**Blocked on:**
+
+-
+
+**Next week's focus:**
+
+1.
+2.
+3.
+
+---
+
+*Tip: keep this file in version control (git) so you have a timestamped history of progress entries.*
