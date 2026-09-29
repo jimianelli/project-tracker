@@ -214,6 +214,13 @@
     .legend-dot {
       width: 8px; height: 8px; border-radius: 50%;
     }
+    .page-nav { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: .85rem; }
+    .page-nav a { color: #235586; }
+    .assessment-note { max-width: 900px; font-size: .86rem; line-height: 1.55; margin: 0 0 20px; color: #485361; }
+    .card-description, .card-criteria { font-size: .77rem; line-height: 1.45; margin-top: 8px; color: #485361; }
+    .card-criteria summary { cursor: pointer; color: #235586; }
+    .card-criteria p { margin-top: 5px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #235586; outline-offset: 3px; }
   </style>
 </head>
 <body>
@@ -221,7 +228,9 @@
 <header>
   <h1>Jim's Project Board</h1>
   <p>Last updated: <span id="lastUpdated">—</span> &nbsp;|&nbsp; Drag cards between columns to update status &nbsp;|&nbsp; Click "notes" to add comments</p>
+  <nav class="page-nav" aria-label="Project navigation"><a href="index.html">Project hub</a><a href="project_log.html#ebs-pollock-2026">2026 data gaps and criteria</a><a href="packages.html">R package inventory (22)</a></nav>
 </header>
+<p class="assessment-note">2026 assessment tasks cover ten data updates, Plan Team diagnostics, and preservation of the legacy workspace. Initial task status: September 29, 2026. Model 26.0 (Rceattle) is primary; Model 23.0 provides comparison. The earlier 14 cards retain their saved positions and notes. Assessment results and drafts remain private.</p>
 
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:var(--tag-r)"></div> R</div>
@@ -240,6 +249,97 @@
       <span class="col-count" id="count-todo">0</span>
     </div>
     <div class="cards" id="cards-todo">
+
+      <div class="card" draggable="true" data-id="ebs26-bts-index">
+        <div class="card-title">Update BTS 2025–2026 indices and covariance</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Obtain the delivered BTS index estimates and uncertainty for 2025 and 2026, including revisions to earlier observations.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Verify actual survey years and coverage; retain estimates, covariance or supplied uncertainty, method version, and comparison with the previous series. Preserve the absent 2020 BTS.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update BTS 2025–2026 indices and covariance" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-ats-index">
+        <div class="card-title">Update ATS 2026 index and age-1 series</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Obtain the 2026 acoustic-trawl survey index and separate age-1 estimate, with their uncertainty and survey coverage.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Validate units, delivered uncertainty, revision, and actual survey years. Preserve the corrected ATS 2020 age-1 treatment and keep the missing placeholder outside fitting.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update ATS 2026 index and age-1 series" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-avo-index">
+        <div class="card-title">Update AVO index through 2026</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Obtain observations through 2026 where surveyed and document revisions to the acoustic vessel-of-opportunity series.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Record processing revision, observation years, coverage and uncertainty; compare revised historical values and document the approved uncertainty treatment.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update AVO index through 2026" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-bts-ages">
+        <div class="card-title">Update BTS age compositions through 2026</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Obtain the delivered BTS age compositions through 2026 and identify changes in expansion or age-estimation methods.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Retain actual survey years, age range, sample sizes, expansion method, age-reading provenance and uncertainty; validate composition totals and years against the index inputs.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update BTS age compositions through 2026" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-fishery-ages">
+        <div class="card-title">Update fishery ages for 2024 and 2025</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Obtain the completed 2024 and 2025 fishery age compositions and associated sampling information.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Record fish and haul counts, strata, expansion, age-reading method, uncertainty and revision; validate the terminal composition year as 2025 and preserve source age-method labels.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update fishery ages for 2024 and 2025" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-biological-inputs">
+        <div class="card-title">Update biological and weight-at-age schedules</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update biological and weight-at-age schedules" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-ageing-weighting">
+        <div class="card-title">Document ageing error and composition weights</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Reconcile ageing-error treatment, sampling counts and likelihood sample sizes for fishery, BTS and ATS compositions.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Archive matrices and age methods; distinguish sampled fish, starting sample sizes and final likelihood weights; document all adjustments and preserve zero ATS 2020 composition weight.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Document ageing error and composition weights" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-input-freeze">
+        <div class="card-title">Validate and freeze matched model inputs</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Prepare matched, dated input sets for primary Model 26.0 (Rceattle) and comparison Model 23.0.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Check source revisions, observation schedules, dimensions, units, sums, missingness, ageing error and weights; record changes, checksums and the selected input versions before fitting.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Validate and freeze matched model inputs" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-plan-team">
+        <div class="card-title">Complete Plan Team model diagnostics</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Evaluate the six core analysis areas: age-1 BTS selectivity, simulated-data retrospective peels, selectivity across peels, matched 23.0/26.0 retrospectives, BTS data influence, and composition weighting.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>For every analysis, retain configuration, convergence evidence, comparisons and interpretation; link the response to the corresponding Plan Team recommendation. Track future ESP development separately as resources allow.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Complete Plan Team model diagnostics" placeholder="Add notes here…"></textarea></div>
+      </div>
+
 
       <div class="card" draggable="true" data-id="c1">
         <div class="card-title">Add age-error to sampler</div>
@@ -341,6 +441,7 @@
     </div>
     <div class="cards" id="cards-progress">
 
+
       <div class="card" draggable="true" data-id="c11">
         <div class="card-title">Test sampler in R</div>
         <div class="card-project">R Sampler<a class="card-repo" href="https://github.com/afsc-assessments/sampler" target="_blank" rel="noopener">↗ afsc-assessments/sampler</a></div>
@@ -392,6 +493,27 @@
       <span class="col-count" id="count-review">0</span>
     </div>
     <div class="cards" id="cards-review">
+
+      <div class="card" draggable="true" data-id="ebs26-catch">
+        <div class="card-title">Finalize 2025 catch and update 2026 catch</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Waiting for the October 1 catch query. Separate final 2025 removals, reported 2026 catch at extraction, and the estimated remainder of 2026.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Record source, extraction date, units, retained/discarded and CDQ treatment; reconcile final 2025 catch; document the 2026 year-end estimate and its completion method.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Finalize 2025 catch and update 2026 catch" placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="ebs26-ats-ages">
+        <div class="card-title">Receive final ATS 2026 age compositions</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Waiting for the final 2026 ATS age-composition delivery. Keep the delivered survey-age series separate from the age-1 index.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Confirm final delivery and age-reading method; validate compositions, age range, sample sizes and uncertainty. Preserve zero composition weight for the absent ATS 2020 age sample.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Receive final ATS 2026 age compositions" placeholder="Add notes here…"></textarea></div>
+      </div>
+
     </div>
     <button class="add-card-btn" onclick="showAddForm('review')">+ Add card</button>
     <div class="add-card-form" id="addform-review">
@@ -411,6 +533,17 @@
       <span class="col-count" id="count-done">0</span>
     </div>
     <div class="cards" id="cards-done">
+
+      <div class="card" draggable="true" data-id="ebs26-retire-legacy">
+        <div class="card-title">Preserve useful ebswp_assessment work and retire it</div>
+        <div class="card-project">EBS pollock 2026</div>
+        <p class="card-description">Archived read-only after a verified private backup. Useful 2025 inputs were retained pending validation; the local source was preserved.</p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Completed: verified private backup and archive status; retained useful inputs and local source. Validate the retained inputs before assessment use.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Preserve useful ebswp_assessment work and retire it" placeholder="Add notes here…"></textarea></div>
+      </div>
+
     </div>
     <button class="add-card-btn" onclick="showAddForm('done')">+ Add card</button>
     <div class="add-card-form" id="addform-done">
@@ -424,7 +557,7 @@
 
 </div>
 
-<footer>Changes are saved in your browser — reopen this file to see them persist. &nbsp;|&nbsp; Tip: add this to your bookmarks bar for quick daily check-ins.</footer>
+<footer>Card positions, custom cards, and notes are saved in this browser for this site. They remain local to this browser and are separate from the dated project log.</footer>
 
 <script>
   let dragCard = null;
@@ -453,24 +586,79 @@
     document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
   }
 
+  // Build custom cards with text nodes so saved titles and notes remain plain text.
+  function createCustomCard(item) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.draggable = true;
+    card.dataset.id = item.id;
+    const title = document.createElement('div');
+    title.className = 'card-title';
+    title.textContent = typeof item.title === 'string' ? item.title : 'Untitled card';
+    const project = document.createElement('div');
+    project.className = 'card-project';
+    project.textContent = typeof item.project === 'string' ? item.project : '—';
+    const tags = document.createElement('div');
+    tags.className = 'card-tags';
+    const tagClasses = { R: 'tag-R', ADMB: 'tag-ADMB', Admin: 'tag-Admin', SporC: 'tag-SporC' };
+    (Array.isArray(item.tags) ? item.tags : []).forEach(label => {
+      if (typeof label !== 'string') return;
+      const tag = document.createElement('span');
+      tag.className = 'tag ' + (tagClasses[label] || 'tag-Admin');
+      tag.textContent = label;
+      tags.appendChild(tag);
+    });
+    const toggle = document.createElement('span');
+    toggle.className = 'card-expand';
+    toggle.textContent = '▸ notes';
+    toggle.addEventListener('click', () => toggleNotes(toggle));
+    const notesArea = document.createElement('div');
+    notesArea.className = 'notes-area';
+    const notes = document.createElement('textarea');
+    notes.placeholder = 'Add notes here…';
+    notes.setAttribute('aria-label', 'Notes for ' + title.textContent);
+    notes.value = typeof item.notes === 'string' ? item.notes : '';
+    notesArea.appendChild(notes);
+    card.append(title, project, tags, toggle, notesArea);
+    return card;
+  }
+
   function loadState() {
-    const saved = localStorage.getItem('kanban_state');
-    const updated = localStorage.getItem('kanban_updated');
-    if (updated) document.getElementById('lastUpdated').textContent = updated;
-    else document.getElementById('lastUpdated').textContent = 'Never saved (use drag to save)';
-    if (!saved) { updateCounts(); return; }
-    const state = JSON.parse(saved);
-    // Only restore positions (move existing cards), don't rebuild from scratch
-    ['todo','progress','review','done'].forEach(col => {
-      const container = document.getElementById('cards-' + col);
-      (state[col] || []).forEach(item => {
-        const existing = document.querySelector('[data-id="' + item.id + '"]');
-        if (existing) {
-          container.appendChild(existing);
-          if (existing.querySelector('textarea')) existing.querySelector('textarea').value = item.notes || '';
-        }
+    const status = document.getElementById('lastUpdated');
+    let saved, updated, state;
+    try {
+      saved = localStorage.getItem('kanban_state');
+      updated = localStorage.getItem('kanban_updated');
+      state = saved ? JSON.parse(saved) : null;
+      if (state !== null && (typeof state !== 'object' || Array.isArray(state))) throw new Error('Invalid board state');
+    } catch (error) {
+      status.textContent = 'Saved board state could not be read; initial cards shown';
+      updateCounts();
+      return;
+    }
+    status.textContent = updated || 'Initial board (move a card or add a note to save)';
+    if (!state) { updateCounts(); return; }
+    const columns = ['todo', 'progress', 'review', 'done'];
+    const cardsById = new Map(Array.from(document.querySelectorAll('.card')).map(card => [card.dataset.id, card]));
+    const restoredIds = new Set();
+    const restored = Object.fromEntries(columns.map(col => [col, []]));
+    columns.forEach(col => {
+      (Array.isArray(state[col]) ? state[col] : []).forEach(item => {
+        if (!item || typeof item !== 'object' || typeof item.id !== 'string' || !item.id || restoredIds.has(item.id)) return;
+        const card = cardsById.get(item.id) || createCustomCard(item);
+        const notes = card.querySelector('textarea');
+        if (notes && typeof item.notes === 'string') notes.value = item.notes;
+        restored[col].push(card);
+        restoredIds.add(item.id);
       });
     });
+    // Keep the user's saved order first; append newly supplied cards in their initial columns.
+    const additions = Object.fromEntries(columns.map(col => [col,
+      Array.from(document.getElementById('cards-' + col).querySelectorAll('.card'))
+        .filter(card => !restoredIds.has(card.dataset.id))
+    ]));
+    columns.forEach(col => document.getElementById('cards-' + col).replaceChildren(...restored[col], ...additions[col]));
+    // Loading preserves storage; only a user change writes the merged board.
     updateCounts();
   }
 
@@ -520,18 +708,8 @@
     const titleEl = document.getElementById('newtitle-' + col);
     const title = titleEl.value.trim();
     if (!title) return;
-    const id = 'c_' + Date.now();
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.draggable = true;
-    card.dataset.id = id;
-    card.innerHTML = `
-      <div class="card-title">${title}</div>
-      <div class="card-project">—</div>
-      <div class="card-tags"></div>
-      <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
-      <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
-    `;
+    const id = 'c_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+    const card = createCustomCard({ id, title, project: '—', tags: [], notes: '' });
     document.getElementById('cards-' + col).appendChild(card);
     hideAddForm(col);
     saveState(); updateCounts();

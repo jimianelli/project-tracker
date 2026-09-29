@@ -1,6 +1,8 @@
 ---
 title: "Jim's Project Log"
-date: today
+date: "2026-09-29"
+lang: en-US
+lightbox: true
 format:
   html:
     toc: true
@@ -16,78 +18,74 @@ execute:
   warning: false
 ---
 
-```{r setup, include=FALSE}
-library(knitr)
-library(kableExtra)
-```
+[Project hub](index.html) · [Kanban board](kanban.html) · [R package inventory (22)](packages.html)
 
 # Overview
 
-This document tracks active projects, sub-tasks, and progress notes.
-Update the status column and log entries regularly to maintain momentum.
+This log records project tasks and completion criteria. The assessment checklist was added on September 29, 2026. Earlier project entries are retained as a historical snapshot from February 20, 2026; their status labels require a current review. Browser-saved card positions and notes remain independent of this log.
 
-```{r}
-#| label: tbl-summary
-#| tbl-cap: "Project Status Summary"
+| Project | Recorded status | Status date / interpretation |
+|---|---|---|
+| EBS pollock 2026 data | Ten open tasks; two waiting | September 29, 2026; completion requires the evidence below |
+| EBS pollock Plan Team diagnostics | To do | September 29, 2026; six core analysis areas |
+| Legacy assessment workspace | Done | September 29, 2026; backup verified, repository archived, useful sources retained |
+| R Sampler | In progress | Historical: February 20, 2026 |
+| spmR | In progress | Historical: February 20, 2026 |
+| WtAgeRE | To do | Historical: February 20, 2026 |
+| ADMB pm.tpl | In progress | Historical: February 20, 2026 |
+| SporC age-error | To do | Historical: February 20, 2026 |
+| SporC two-area | In progress | Historical: February 20, 2026 |
+| Admin | To do | Historical: February 20, 2026 |
 
-projects <- data.frame(
-  Project = c(
-    "R Sampler",
-    "spmR",
-    "WtAgeRE",
-    "ADMB pm.tpl",
-    "SporC (age-error)",
-    "SporC (two-area)",
-    "Admin"
-  ),
-  Status = c(
-    "In Progress",
-    "In Progress",
-    "To Do",
-    "In Progress",
-    "To Do",
-    "In Progress",
-    "To Do"
-  ),
-  Priority = c("High","High","Medium","High","Medium","High","Low"),
-  Notes = c(
-    "Testing underway; age-error and data pulls pending",
-    "Testing underway; alt inputs, speed, F-SPR needed",
-    "Age-error development not yet started",
-    "Updating 2024 base run to 2025 data",
-    "Specs needed before implementation",
-    "Check Russian results; develop defaults",
-    "Tomo form outstanding"
-  )
-)
+# EBS pollock 2026 {#ebs-pollock-2026}
 
-tbl <- kable(projects, align = c("l","c","c","l"))
+**Model scope:** Model 26.0 (Rceattle) is the primary model. Model 23.0 provides continuity and comparison. This public checklist contains task descriptions and completion criteria; assessment results and draft files remain private.
 
-if (knitr::is_html_output()) {
-  tbl <- tbl |>
-    kable_styling(
-      bootstrap_options = c("striped", "hover", "condensed"),
-      full_width = FALSE
-    ) |>
-    column_spec(2,
-      color = ifelse(projects$Status == "Done", "white",
-               ifelse(projects$Status == "In Progress", "white", "#555")),
-      background = ifelse(projects$Status == "Done", "#5a9c6f",
-                   ifelse(projects$Status == "In Progress", "#d6a435", "#ddd"))
-    )
-} else {
-  tbl <- tbl |>
-    kable_styling(
-      latex_options = c("striped", "hold_position"),
-      full_width = FALSE
-    )
-}
-tbl
-```
+The requested inputs are fishery catch, BTS, ATS and AVO indices through 2026; BTS and ATS ages through 2026; and fishery ages through 2025. Preserve each series' actual observation years. Retain the absent 2020 BTS, the corrected ATS 2020 age-1 treatment, and zero composition weight for the absent ATS 2020 age sample.
+
+## Ten data gaps and completion criteria
+
+[Download the data-gap checklist (CSV)](data/assessment-data-gaps.csv) · [Task register (JSON)](data/assessment-tasks.json)
+
+| Task | Initial status | Completion criteria |
+|---|---|---|
+| Finalize 2025 catch and update 2026 catch | Waiting | Record source, extraction date, units, retained/discarded and CDQ treatment; reconcile final 2025 catch; document the 2026 year-end estimate and its completion method. |
+| Update BTS 2025–2026 indices and covariance | To do | Verify actual survey years and coverage; retain estimates, covariance or supplied uncertainty, method version, and comparison with the previous series. Preserve the absent 2020 BTS. |
+| Update ATS 2026 index and age-1 series | To do | Validate units, delivered uncertainty, revision, and actual survey years. Preserve the corrected ATS 2020 age-1 treatment and keep the missing placeholder outside fitting. |
+| Update AVO index through 2026 | To do | Record processing revision, observation years, coverage and uncertainty; compare revised historical values and document the approved uncertainty treatment. |
+| Update BTS age compositions through 2026 | To do | Retain actual survey years, age range, sample sizes, expansion method, age-reading provenance and uncertainty; validate composition totals and years against the index inputs. |
+| Receive final ATS 2026 age compositions | Waiting | Confirm final delivery and age-reading method; validate compositions, age range, sample sizes and uncertainty. Preserve zero composition weight for the absent ATS 2020 age sample. |
+| Update fishery ages for 2024 and 2025 | To do | Record fish and haul counts, strata, expansion, age-reading method, uncertainty and revision; validate the terminal composition year as 2025 and preserve source age-method labels. |
+| Update biological and weight-at-age schedules | To do | Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. |
+| Document ageing error and composition weights | To do | Archive matrices and age methods; distinguish sampled fish, starting sample sizes and final likelihood weights; document all adjustments and preserve zero ATS 2020 composition weight. |
+| Validate and freeze matched model inputs | To do | Check source revisions, observation schedules, dimensions, units, sums, missingness, ageing error and weights; record changes, checksums and the selected input versions before fitting. |
+
+The catch task waits for the October 1 query and a documented full-year completion estimate. The ATS age task waits for the final 2026 delivery. Move a card to Done after checking its completion criteria and recording the dated evidence in the assessment workspace.
+
+## Plan Team diagnostics
+
+- [ ] Age-1 BTS selectivity: evaluate alternative penalties and a time-invariant alternative.
+- [ ] Simulated-data retrospectives: simulate from fitted Model 26.0, refit, and perform peels.
+- [ ] Selectivity across peels: examine retrospective changes in time-varying selectivity.
+- [ ] Paired retrospectives: present Models 23.0 and 26.0 with matched data cutoffs and peel years.
+- [ ] BTS data influence: examine index volatility, the missing 2020 survey, and supported data or ecosystem explanations.
+- [ ] Composition weighting: document starting and final weights and evaluate alternatives with OSA diagnostics.
+
+For each analysis, retain settings, numerical diagnostics, outputs, interpretation and the response to the recommendation. Continue future ESP material as resources allow.
+
+## Legacy workspace retirement
+
+**Status:** Done. The `ebswp_assessment` repository is archived read-only after a verified private backup. Useful 2025 inputs were retained pending validation, and the local source was preserved. Validate the retained inputs before assessment use.
+
+## R package inventory
+
+The [22-package inventory](packages.html) provides package versions, repository and documentation links. It supports finding the software relevant to each task. Package inclusion records its presence in the R-universe listing; available versions and failed attempts are distinguished. Model validation belongs with the selected assessment run.
 
 ---
 
-# Projects
+# Earlier project record
+
+The following statuses and notes are preserved from February 20, 2026 and await a current status review.
 
 ## R Sampler
 
@@ -115,7 +113,7 @@ tbl
 
 **Status:** In Progress
 **Repo:** [afsc-assessments/spmR](https://github.com/afsc-assessments/spmR)
-**Goal:** Test and extend the `spmR` surplus production model package.
+**Goal:** Test and extend the `spmR` standard projection model package.
 
 ### Sub-tasks
 

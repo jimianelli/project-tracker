@@ -1,28 +1,48 @@
 # Project Tracker
 
-Jim's project kanban board and living project log.
+Jim's project hub, kanban board, R package inventory, and Quarto project log.
 
 ## Files
 
-| File | Description |
-|------|-------------|
-| `kanban.html` | Interactive drag-and-drop kanban board — open in any browser |
-| `project_log.qmd` | Quarto project log with sub-task checklists and weekly check-in template |
+| File | Purpose |
+|---|---|
+| `index.html` | Navigation and dated project overview |
+| `kanban.html` | Four-column board with 14 preserved project cards and 12 assessment cards |
+| `project_log.qmd` | Editable log, ten assessment data gaps, completion criteria, and historical project notes |
+| `project_log.html` | Rendered project log |
+| `packages.html` | Inventory of 22 R packages with repository and documentation links |
+| `data/assessment-tasks.json` | Twelve assessment task definitions with stable `ebs26-*` identifiers |
+| `data/assessment-data-gaps.csv` | Ten data tasks with completion criteria |
 
-## Usage
+## Board behavior
 
-**Kanban board:** Open `kanban.html` in a browser. Drag cards between columns, add notes, add new cards. State saves to browser local storage.
+Open `kanban.html`, move cards, add notes, or create custom cards. State is saved under the existing `kanban_state` and `kanban_updated` browser-local keys. Saved cards retain their order, column and notes. Newly supplied cards are appended after saved cards in their initial columns. Custom cards are restored as plain text. State stays in the current browser and site origin; the dated project log is maintained separately.
 
-**Project log:** Edit `project_log.qmd` directly, adding dated progress notes as you work. Render with:
+Initial assessment status on September 29, 2026: eight data tasks and the diagnostics task are To Do; catch extraction and final ATS ages are Waiting; legacy-workspace preservation and repository archival is Done. The 14 earlier project cards are retained. Their published status comes from the historical February 20 log; browser-saved positions take precedence.
+
+## Assessment checklist
+
+Model 26.0 (Rceattle) is primary, with Model 23.0 for comparison. The ten data tasks cover catch and survey inputs through 2026, BTS and ATS ages through 2026, fishery ages through 2025, biological inputs, ageing error and weights, and a matched input check. Retain actual survey years and the corrected treatment of missing ATS 2020 observations. The public tracker contains task descriptions; assessment results, attachments and draft files remain in the private assessment workspace.
+
+Task definitions are recorded in JSON and the ten data gaps in CSV. When a task definition changes, update its board description and the log checklist together. Stable IDs preserve saved browser state.
+
+## Render the log
 
 ```bash
-quarto render project_log.qmd
+quarto render project_log.qmd --to html
 ```
 
-## Sharing
+The log uses semantic Markdown tables and requires no R packages to render. Its YAML includes `lang: en-US` and `lightbox: true`. Commit the editable source and rendered HTML together after review. Package inventory maintenance is documented with its inventory source and build script.
 
-Share the rendered `project_log.html` (or PDF) with colleagues, or invite them to clone this repo and open `kanban.html` locally.
 
-## Workflow tip
+## Refresh the package inventory
 
-Commit changes to `project_log.qmd` regularly — the git history becomes your progress record.
+Retrieve the public R-universe API response to an ignored local file, then run:
+
+    curl --fail https://jimianelli.r-universe.dev/api/packages -o data/r-universe-source.json
+    python3 scripts/build_package_inventory.py data/r-universe-source.json
+
+The current generator records the September 29, 2026 snapshot. Update its snapshot
+date when refreshing. Commit the reduced JSON/CSV and packages.html; keep the
+full API response local. Build status describes software checks, not scientific
+validation. Package filters include records of failed source builds.

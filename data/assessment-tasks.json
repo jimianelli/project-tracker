@@ -1,0 +1,120 @@
+{
+  "updated": "2026-09-29",
+  "scope": "Public task descriptions only; assessment results and draft files remain private.",
+  "status_labels": {
+    "todo": "To do",
+    "progress": "In progress",
+    "review": "Waiting",
+    "done": "Done"
+  },
+  "tasks": [
+    {
+      "id": "ebs26-catch",
+      "title": "Finalize 2025 catch and update 2026 catch",
+      "status": "review",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Waiting for the October 1 catch query. Separate final 2025 removals, reported 2026 catch at extraction, and the estimated remainder of 2026.",
+      "completion_criteria": "Record source, extraction date, units, retained/discarded and CDQ treatment; reconcile final 2025 catch; document the 2026 year-end estimate and its completion method."
+    },
+    {
+      "id": "ebs26-bts-index",
+      "title": "Update BTS 2025\u20132026 indices and covariance",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Obtain the delivered BTS index estimates and uncertainty for 2025 and 2026, including revisions to earlier observations.",
+      "completion_criteria": "Verify actual survey years and coverage; retain estimates, covariance or supplied uncertainty, method version, and comparison with the previous series. Preserve the absent 2020 BTS."
+    },
+    {
+      "id": "ebs26-ats-index",
+      "title": "Update ATS 2026 index and age-1 series",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Obtain the 2026 acoustic-trawl survey index and separate age-1 estimate, with their uncertainty and survey coverage.",
+      "completion_criteria": "Validate units, delivered uncertainty, revision, and actual survey years. Preserve the corrected ATS 2020 age-1 treatment and keep the missing placeholder outside fitting."
+    },
+    {
+      "id": "ebs26-avo-index",
+      "title": "Update AVO index through 2026",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Obtain observations through 2026 where surveyed and document revisions to the acoustic vessel-of-opportunity series.",
+      "completion_criteria": "Record processing revision, observation years, coverage and uncertainty; compare revised historical values and document the approved uncertainty treatment."
+    },
+    {
+      "id": "ebs26-bts-ages",
+      "title": "Update BTS age compositions through 2026",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Obtain the delivered BTS age compositions through 2026 and identify changes in expansion or age-estimation methods.",
+      "completion_criteria": "Retain actual survey years, age range, sample sizes, expansion method, age-reading provenance and uncertainty; validate composition totals and years against the index inputs."
+    },
+    {
+      "id": "ebs26-ats-ages",
+      "title": "Receive final ATS 2026 age compositions",
+      "status": "review",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Waiting for the final 2026 ATS age-composition delivery. Keep the delivered survey-age series separate from the age-1 index.",
+      "completion_criteria": "Confirm final delivery and age-reading method; validate compositions, age range, sample sizes and uncertainty. Preserve zero composition weight for the absent ATS 2020 age sample."
+    },
+    {
+      "id": "ebs26-fishery-ages",
+      "title": "Update fishery ages for 2024 and 2025",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Obtain the completed 2024 and 2025 fishery age compositions and associated sampling information.",
+      "completion_criteria": "Record fish and haul counts, strata, expansion, age-reading method, uncertainty and revision; validate the terminal composition year as 2025 and preserve source age-method labels."
+    },
+    {
+      "id": "ebs26-biological-inputs",
+      "title": "Update biological and weight-at-age schedules",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment.",
+      "completion_criteria": "Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change."
+    },
+    {
+      "id": "ebs26-ageing-weighting",
+      "title": "Document ageing error and composition weights",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Reconcile ageing-error treatment, sampling counts and likelihood sample sizes for fishery, BTS and ATS compositions.",
+      "completion_criteria": "Archive matrices and age methods; distinguish sampled fish, starting sample sizes and final likelihood weights; document all adjustments and preserve zero ATS 2020 composition weight."
+    },
+    {
+      "id": "ebs26-input-freeze",
+      "title": "Validate and freeze matched model inputs",
+      "status": "todo",
+      "kind": "data",
+      "project": "EBS pollock 2026",
+      "description": "Prepare matched, dated input sets for primary Model 26.0 (Rceattle) and comparison Model 23.0.",
+      "completion_criteria": "Check source revisions, observation schedules, dimensions, units, sums, missingness, ageing error and weights; record changes, checksums and the selected input versions before fitting."
+    },
+    {
+      "id": "ebs26-plan-team",
+      "title": "Complete Plan Team model diagnostics",
+      "status": "todo",
+      "kind": "diagnostics",
+      "project": "EBS pollock 2026",
+      "description": "Evaluate the six core analysis areas: age-1 BTS selectivity, simulated-data retrospective peels, selectivity across peels, matched 23.0/26.0 retrospectives, BTS data influence, and composition weighting.",
+      "completion_criteria": "For every analysis, retain configuration, convergence evidence, comparisons and interpretation; link the response to the corresponding Plan Team recommendation. Track future ESP development separately as resources allow."
+    },
+    {
+      "id": "ebs26-retire-legacy",
+      "title": "Preserve useful ebswp_assessment work and retire it",
+      "status": "done",
+      "kind": "maintenance",
+      "project": "EBS pollock 2026",
+      "description": "Archived read-only after a verified private backup. Useful 2025 inputs were retained pending validation; the local source was preserved.",
+      "completion_criteria": "Completed: verified private backup and archive status; retained useful inputs and local source. Validate the retained inputs before assessment use."
+    }
+  ]
+}

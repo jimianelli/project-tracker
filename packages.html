@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Jim's R-universe package inventory with source versions, build status, checks, and project links.">
+<title>R Packages · Jim's Project Hub</title>
+<style>
+:root{--bg:#f0f2f5;--card-bg:#fff;--header:#3a4a5c;--accent:#205f9d;--radius:10px;--shadow:0 2px 8px rgba(0,0,0,.10)}
+*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:#222;line-height:1.5;margin:0 auto;max-width:1400px;padding:32px 24px 48px}
+a{color:var(--accent);text-underline-offset:3px}a:focus-visible,input:focus-visible,select:focus-visible,.table-wrap:focus-visible{outline:3px solid #805500;outline-offset:4px}
+.skip{position:absolute;top:-70px;left:20px;background:#fff;padding:8px 16px;z-index:10}.skip:focus{top:10px}
+header{border-bottom:2px solid #dde0e8;padding-bottom:20px;margin-bottom:24px}h1{font-size:1.9rem;letter-spacing:-.02em;color:var(--header);margin:0 0 8px}h2{font-size:1.1rem;color:var(--header);margin-top:0}p{margin:8px 0 14px}nav{display:flex;flex-wrap:wrap;gap:10px 24px;margin-bottom:24px}nav a[aria-current]{font-weight:700;text-decoration:none;color:var(--header)}
+.summary{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0}.summary p{background:var(--card-bg);box-shadow:var(--shadow);border-radius:var(--radius);border-top:4px solid #3e7fc1;padding:14px 18px;margin:0;min-width:190px}.summary strong{display:block;font-size:1.65rem;color:var(--header)}
+.guide{max-width:1050px}.filters{display:flex;gap:16px;flex-wrap:wrap;align-items:end;margin:24px 0 12px}.filters label{font-weight:650;display:block;margin-bottom:5px}.filters input,.filters select{font:inherit;min-height:44px;border:1px solid #65717e;border-radius:6px;padding:8px 12px;background:white;color:#222}.filters input{width:min(430px,85vw)}
+.table-wrap{background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:970px;text-align:left}caption{text-align:left;padding:18px;font-weight:650;color:var(--header)}thead{background:var(--header);color:white}th,td{padding:14px 12px;vertical-align:top;border-bottom:1px solid #dce1e7}th[scope=row]{font-size:.95rem;overflow-wrap:anywhere}tbody tr:last-child>*{border-bottom:none}tbody tr:nth-child(even){background:#f7f9fc}.package-title{min-width:240px;max-width:390px;font-size:.92rem}.version{font-family:ui-monospace,monospace}.detail{display:block;font-size:.82rem;color:#4c5966;margin-top:5px}.badge{display:inline-block;font-weight:650;font-size:.85rem;padding:2px 9px;border-radius:5px}.success{background:#dceee2;color:#215335}.failure{background:#f8dfe0;color:#7a2429}.unknown{background:#e6e9ee;color:#374450}.links a{display:block;white-space:nowrap;margin-bottom:8px}.downloads{display:flex;gap:20px;flex-wrap:wrap}.footer{margin-top:32px;border-top:1px solid #ccd2db;padding-top:16px;color:#4c5966;font-size:.9rem}[hidden]{display:none!important}
+@media(max-width:650px){body{padding:22px 14px 36px}h1{font-size:1.6rem}.summary p{flex:1;min-width:140px}.filters>*{width:100%}.filters input,.filters select{width:100%}}@media print{body{background:white;padding:0;font-size:10pt;max-width:none}.filters,nav,.skip{display:none}.table-wrap{overflow:visible;box-shadow:none}table{min-width:0}th,td{padding:6px}.package-title{min-width:0}a{color:#222}.summary p{box-shadow:none;border:1px solid #aaa}.badge{background:white;color:#222}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to package inventory</a>
+<header>
+<nav aria-label="Project navigation"><a href="index.html">Home</a><a href="kanban.html">Kanban</a><a href="project_log.html">Project log</a><a href="packages.html" aria-current="page">R packages</a></nav>
+<h1>R package inventory</h1>
+<p>All packages listed in <a href="https://jimianelli.r-universe.dev/packages">Jim's R-universe</a>, captured on <time datetime="2026-09-29">September 29, 2026</time>.</p>
+</header>
+<main id="main">
+<div class="summary" aria-label="Snapshot counts">
+<p><strong>22</strong>Packages listed</p><p><strong>19</strong>Available source records</p><p><strong>3</strong>Failed source attempts</p>
+</div>
+<section class="guide" aria-labelledby="reading"><h2 id="reading">Reading the inventory</h2>
+<p>Versions under “Available source record” come from package metadata. “Attempted version” comes from a failed build record. Source-provided titles are preserved; missing titles are marked explicitly.</p>
+<p>Build status is the status reported by R-universe. Checks summarize the source job and all reported platform jobs, so a successful source record can still have errors on some platforms. These are software build results; scientific validation requires separate evidence.</p>
+<p>Use the build logs for details. This page is a dated snapshot; package links open the current records.</p></section>
+<div class="filters" id="filters" hidden>
+<div><label for="search">Search packages, titles, versions, or checks</label><input id="search" type="search" autocomplete="off" placeholder="For example: pollock or ERROR" aria-controls="package-body"></div>
+<div><label for="build-filter">Reported build status</label><select id="build-filter" aria-controls="package-body"><option value="">All statuses</option><option value="failure">Failure</option><option value="success">Success</option><option value="unavailable">Unavailable</option></select></div>
+</div>
+<p id="result-count" role="status" aria-live="polite">Showing 22 of 22 packages.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Package table; scroll horizontally on narrow screens">
+<table><caption>R-universe package and build inventory · 2026-09-29</caption>
+<thead><tr><th scope="col">Package</th><th scope="col">Version</th><th scope="col">Source title</th><th scope="col">Reported build status</th><th scope="col">Checks</th><th scope="col">Links</th></tr></thead>
+<tbody id="package-body">
+<tr data-package="afscdata" data-status="success">
+<th scope="row">afscdata</th>
+<td><span class="version">1.0.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">An R Package for Extraction of AFSC Fishery Data</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 9</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/afscdata" aria-label="R-universe for afscdata">R-universe</a> <a href="https://github.com/afsc-assessments/afscdata" aria-label="Upstream for afscdata">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/35916740523" aria-label="Build logs for afscdata">Build logs</a></td>
+</tr>
+<tr data-package="afscISS" data-status="success">
+<th scope="row">afscISS</th>
+<td><span class="version">1.0.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">Retrieve composition data ISS</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: NOTE: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/afscISS" aria-label="R-universe for afscISS">R-universe</a> <a href="https://github.com/afsc-assessments/afscISS" aria-label="Upstream for afscISS">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/35539450433" aria-label="Build logs for afscISS">Build logs</a></td>
+</tr>
+<tr data-package="catchfunction" data-status="success">
+<th scope="row">catchfunction</th>
+<td><span class="version">1.7.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">BSAI catch function</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/catchfunction" aria-label="R-universe for catchfunction">R-universe</a> <a href="https://github.com/afsc-assessments/catchfunction" aria-label="Upstream for catchfunction">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34757047430" aria-label="Build logs for catchfunction">Build logs</a></td>
+</tr>
+<tr data-package="ebswp" data-status="success">
+<th scope="row">ebswp</th>
+<td><span class="version">0.0.1.0000</span><span class="detail">Available source record</span></td>
+<td class="package-title">Facilitates Model Running for EBS Pollock</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/ebswp" aria-label="R-universe for ebswp">R-universe</a> <a href="https://github.com/afsc-assessments/ebswp" aria-label="Upstream for ebswp">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/35070687907" aria-label="Build logs for ebswp">Build logs</a></td>
+</tr>
+<tr data-package="FLjjm" data-status="success">
+<th scope="row">FLjjm</th>
+<td><span class="version">0.3.11</span><span class="detail">Available source record</span></td>
+<td class="package-title">Running the JJM Stock Assessment Model Inside the MSE FLR System</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: FAIL: 1; OK: 2; WARNING: 6</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/FLjjm" aria-label="R-universe for FLjjm">R-universe</a> <a href="https://github.com/SPRFMO/FLjjm" aria-label="Upstream for FLjjm">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/36425007654" aria-label="Build logs for FLjjm">Build logs</a></td>
+</tr>
+<tr data-package="fmR" data-status="success">
+<th scope="row">fmR</th>
+<td><span class="version">0.0.0.9000</span><span class="detail">Available source record</span></td>
+<td class="package-title">What the Package Does (One Line, Title Case)</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/fmR" aria-label="R-universe for fmR">R-universe</a> <a href="https://github.com/afsc-assessments/fmR" aria-label="Upstream for fmR">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34756831159" aria-label="Build logs for fmR">Build logs</a></td>
+</tr>
+<tr data-package="funplots" data-status="success">
+<th scope="row">funplots</th>
+<td><span class="version">0.0.0.9000</span><span class="detail">Available source record</span></td>
+<td class="package-title">Exploratory plots of Alaskan survey and fisheries data in support of stock assessment</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/funplots" aria-label="R-universe for funplots">R-universe</a> <a href="https://github.com/afsc-assessments/funplots" aria-label="Upstream for funplots">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34815939818" aria-label="Build logs for funplots">Build logs</a></td>
+</tr>
+<tr data-package="GOApollock" data-status="failure">
+<th scope="row">GOApollock</th>
+<td><span class="version">0.1.0.9000</span><span class="detail">Attempted version</span></td>
+<td class="package-title">Title unavailable in API snapshot</td>
+<td><span class="badge failure">Failure</span><span class="detail">Failed source attempt</span></td>
+<td><strong>Source: ERROR</strong><span class="detail">All reported jobs: ERROR: 1</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/GOApollock" aria-label="R-universe for GOApollock">R-universe</a> <a href="https://github.com/afsc-assessments/GOApollock" aria-label="Upstream for GOApollock">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/33242366613" aria-label="Build logs for GOApollock">Build logs</a></td>
+</tr>
+<tr data-package="growthbreaks" data-status="success">
+<th scope="row">growthbreaks</th>
+<td><span class="version">0.1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">Spatio-temporal Growth Anomaly Detection</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 13; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/growthbreaks" aria-label="R-universe for growthbreaks">R-universe</a> <a href="https://github.com/afsc-assessments/growthbreaks" aria-label="Upstream for growthbreaks">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34757390297" aria-label="Build logs for growthbreaks">Build logs</a></td>
+</tr>
+<tr data-package="inseasonDashboard" data-status="success">
+<th scope="row">inseasonDashboard</th>
+<td><span class="version">0.1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">In-Season Fishery Monitoring Tools</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/inseasonDashboard" aria-label="R-universe for inseasonDashboard">R-universe</a> <a href="https://github.com/afsc-assessments/inseasonDashR" aria-label="Upstream for inseasonDashboard">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/35067717257" aria-label="Build logs for inseasonDashboard">Build logs</a></td>
+</tr>
+<tr data-package="jjmR" data-status="success">
+<th scope="row">jjmR</th>
+<td><span class="version">1.2020.1</span><span class="detail">Available source record</span></td>
+<td class="package-title">Graphics and diagnostics tools for SPRFMO&#x27;s Joint Jack Mackerel model</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/jjmR" aria-label="R-universe for jjmR">R-universe</a> <a href="https://github.com/SPRFMO/jjmr" aria-label="Upstream for jjmR">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34651667440" aria-label="Build logs for jjmR">Build logs</a></td>
+</tr>
+<tr data-package="NamibianHake" data-status="success">
+<th scope="row">NamibianHake</th>
+<td><span class="version">0.0.0.9000</span><span class="detail">Available source record</span></td>
+<td class="package-title">Namibian Hake Stock Assessment Model</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/NamibianHake" aria-label="R-universe for NamibianHake">R-universe</a> <a href="https://github.com/jimianelli/NamibianHake" aria-label="Upstream for NamibianHake">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34961509929" aria-label="Build logs for NamibianHake">Build logs</a></td>
+</tr>
+<tr data-package="nwfscAgeingError" data-status="success">
+<th scope="row">nwfscAgeingError</th>
+<td><span class="version">1.3.3</span><span class="detail">Available source record</span></td>
+<td class="package-title">Source Code for Punt et al. (2008): Ageing Error and Imprecision</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/nwfscAgeingError" aria-label="R-universe for nwfscAgeingError">R-universe</a> <a href="https://github.com/jimianelli/nwfscAgeingError" aria-label="Upstream for nwfscAgeingError">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34757094797" aria-label="Build logs for nwfscAgeingError">Build logs</a></td>
+</tr>
+<tr data-package="pkgdownTemplate" data-status="success">
+<th scope="row">pkgdownTemplate</th>
+<td><span class="version">1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">pkgdown Template Package</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 9</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/pkgdownTemplate" aria-label="R-universe for pkgdownTemplate">R-universe</a> <a href="https://github.com/jimianelli/popcie" aria-label="Upstream for pkgdownTemplate">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34756733966" aria-label="Build logs for pkgdownTemplate">Build logs</a></td>
+</tr>
+<tr data-package="planteam" data-status="success">
+<th scope="row">planteam</th>
+<td><span class="version">0.1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">Making Plan Team Smoother</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/planteam" aria-label="R-universe for planteam">R-universe</a> <a href="https://github.com/afsc-assessments/planteam" aria-label="Upstream for planteam">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34756920861" aria-label="Build logs for planteam">Build logs</a></td>
+</tr>
+<tr data-package="rema" data-status="success">
+<th scope="row">rema</th>
+<td><span class="version">1.2.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">A generalized framework to fit the random effects (RE) model, a state-space random walk model developed at the Alaska Fisheries Science Center (AFSC) for apportionment and biomass estimation of groundfish and crab stocks.</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 13</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/rema" aria-label="R-universe for rema">R-universe</a> <a href="https://github.com/afsc-assessments/rema" aria-label="Upstream for rema">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/33966951593" aria-label="Build logs for rema">Build logs</a></td>
+</tr>
+<tr data-package="rtmbFunctions" data-status="failure">
+<th scope="row">rtmbFunctions</th>
+<td><span class="version">0.1.0</span><span class="detail">Attempted version</span></td>
+<td class="package-title">Title unavailable in API snapshot</td>
+<td><span class="badge failure">Failure</span><span class="detail">Failed source attempt</span></td>
+<td><strong>Source: ERROR</strong><span class="detail">All reported jobs: ERROR: 1</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/rtmbFunctions" aria-label="R-universe for rtmbFunctions">R-universe</a> <a href="https://github.com/jimianelli/rtmbsbt" aria-label="Upstream for rtmbFunctions">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34323038652" aria-label="Build logs for rtmbFunctions">Build logs</a></td>
+</tr>
+<tr data-package="sa4all" data-status="success">
+<th scope="row">sa4all</th>
+<td><span class="version">0.0.0.0002</span><span class="detail">Available source record</span></td>
+<td class="package-title">Write Stock Assessments for general purposes</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: OK: 2; WARNING: 7</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/sa4all" aria-label="R-universe for sa4all">R-universe</a> <a href="https://github.com/afsc-assessments/sa4all" aria-label="Upstream for sa4all">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34757108828" aria-label="Build logs for sa4all">Build logs</a></td>
+</tr>
+<tr data-package="SARA" data-status="success">
+<th scope="row">SARA</th>
+<td><span class="version">1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">This is a package for the AFSC Groundfish stock assessment results</td>
+<td><span class="badge success">Success</span><span class="detail">Source package record</span></td>
+<td><strong>Source: OK</strong><span class="detail">All reported jobs: ERROR: 7; OK: 2</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/SARA" aria-label="R-universe for SARA">R-universe</a> <a href="https://github.com/afsc-assessments/sara" aria-label="Upstream for SARA">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34756999238" aria-label="Build logs for SARA">Build logs</a></td>
+</tr>
+<tr data-package="spmR" data-status="failure">
+<th scope="row">spmR</th>
+<td><span class="version">0.3.0</span><span class="detail">Attempted version</span></td>
+<td class="package-title">Title unavailable in API snapshot</td>
+<td><span class="badge failure">Failure</span><span class="detail">Failed source attempt</span></td>
+<td><strong>Source: ERROR</strong><span class="detail">All reported jobs: ERROR: 1</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/spmR" aria-label="R-universe for spmR">R-universe</a> <a href="https://github.com/afsc-assessments/spmR" aria-label="Upstream for spmR">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/36390718374" aria-label="Build logs for spmR">Build logs</a></td>
+</tr>
+<tr data-package="VRData" data-status="failure">
+<th scope="row">VRData</th>
+<td><span class="version">1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">This is a data package for the spawner and fraction wild data used in the NWFSC PNW Salmonid Viability Reports.</td>
+<td><span class="badge failure">Failure</span><span class="detail">Source package record</span></td>
+<td><strong>Source: ERROR</strong><span class="detail">All reported jobs: ERROR: 8; OK: 1</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/VRData" aria-label="R-universe for VRData">R-universe</a> <a href="https://github.com/jimianelli/VRData" aria-label="Upstream for VRData">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/35853953352" aria-label="Build logs for VRData">Build logs</a></td>
+</tr>
+<tr data-package="WtAgeRe" data-status="failure">
+<th scope="row">WtAgeRe</th>
+<td><span class="version">0.1.0</span><span class="detail">Available source record</span></td>
+<td class="package-title">Fish Body Mass at Age Estimation</td>
+<td><span class="badge failure">Failure</span><span class="detail">Source package record</span></td>
+<td><strong>Source: ERROR</strong><span class="detail">All reported jobs: ERROR: 1; FAIL: 5; OK: 1; WARNING: 8</span></td>
+<td class="links"><a href="https://jimianelli.r-universe.dev/WtAgeRe" aria-label="R-universe for WtAgeRe">R-universe</a> <a href="https://github.com/afsc-assessments/WtAgeRe" aria-label="Upstream for WtAgeRe">Upstream</a> <a href="https://github.com/r-universe/jimianelli/actions/runs/34090884540" aria-label="Build logs for WtAgeRe">Build logs</a></td>
+</tr>
+</tbody></table></div>
+<p id="empty" hidden>No packages match these filters. Clear the search or choose all statuses.</p>
+<p class="downloads"><a href="data/packages.csv" download>Download inventory CSV</a><a href="data/packages.json" download>Download inventory JSON</a></p>
+</main>
+<footer class="footer">Source: <a href="https://jimianelli.r-universe.dev/api/packages">R-universe package API</a>. Snapshot: 2026-09-29. Package titles and build fields are reduced from the source response.</footer>
+<script>
+(() => {
+  const rows = [...document.querySelectorAll('#package-body tr')];
+  const search = document.querySelector('#search');
+  const status = document.querySelector('#build-filter');
+  const count = document.querySelector('#result-count');
+  const empty = document.querySelector('#empty');
+  function filter() {
+    const terms = search.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    rows.forEach(row => {
+      const haystack = row.textContent.toLocaleLowerCase();
+      row.hidden = !terms.every(term => haystack.includes(term)) || (status.value !== '' && row.dataset.status !== status.value);
+      if (!row.hidden) shown += 1;
+    });
+    count.textContent = `Showing ${shown} of ${rows.length} packages.`;
+    empty.hidden = shown !== 0;
+  }
+  search.addEventListener('input', filter);
+  status.addEventListener('change', filter);
+  document.querySelector('#filters').hidden = false;
+})();
+</script>
+</body>
+</html>

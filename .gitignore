@@ -21,3 +21,7 @@
 
 # Commit project_log.html for GitHub Pages (do not ignore it)
 # Commit project_log.pdf if you want a downloadable PDF link
+
+# Keep the unreduced R-universe API response local.
+data/r-universe-source.json
+validation/
