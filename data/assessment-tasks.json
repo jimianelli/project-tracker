@@ -77,8 +77,8 @@
       "status": "todo",
       "kind": "data",
       "project": "EBS pollock 2026",
-      "description": "Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment.",
-      "completion_criteria": "Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change."
+      "description": "Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment. Account for the ADMB-to-Rceattle weight-at-age method change in the November assessment.",
+      "completion_criteria": "Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment."
     },
     {
       "id": "ebs26-ageing-weighting",
