@@ -77,8 +77,17 @@
       "status": "todo",
       "kind": "data",
       "project": "EBS pollock 2026",
-      "description": "Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment. Account for the ADMB-to-Rceattle weight-at-age method change in the November assessment.",
+      "description": "Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment. Account for the ADMB-to-Rceattle weight-at-age method change in the November assessment. The WtAgeRe update is tracked separately as ebs26-wtage-re and waits for fishery weights for 2024 and 2025 plus survey weights for 2025 and 2026.",
       "completion_criteria": "Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment."
+    },
+    {
+      "id": "ebs26-wtage-re",
+      "title": "Update WtAgeRe after fishery and survey weight-at-age inputs arrive",
+      "status": "review",
+      "kind": "model-update",
+      "project": "EBS pollock 2026",
+      "description": "Waiting for all four accepted weight-at-age inputs: fishery 2024, fishery 2025, survey 2025, and survey 2026. The survey weights remain unavailable. Begin the WtAgeRe update after all four deliveries are available and validated; keep this assessment update separate from the earlier age-error development task.",
+      "completion_criteria": "Accept and version the four input deliveries, including source, units, age and sex definitions, sampling uncertainty, and missing-value treatment. Pin the WtAgeRe revision and configuration, then run the model with cohort and year random effects. Verify compilation without warnings, exit status and logs, a maximum gradient below 1e-4, and a positive-definite Hessian. Archive estimated and projected weights, uncertainty, and cohort/year sigma values, identifying which are estimated and which are supplied; compare with the prior accepted weights. Document the ADMB input mapping and the weight-method difference for Model 26.0 (Rceattle) before updating assessment inputs or tables."
     },
     {
       "id": "ebs26-ageing-weighting",

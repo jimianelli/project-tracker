@@ -27,6 +27,7 @@ This log records project tasks and completion criteria. The assessment checklist
 | Project | Recorded status | Status date / interpretation |
 |---|---|---|
 | EBS pollock 2026 data | Ten open tasks; two waiting | September 29, 2026; completion requires the evidence below |
+| EBS pollock WtAgeRe update | Waiting | September 29, 2026; requires four weight-at-age deliveries |
 | EBS pollock Plan Team diagnostics | To do | September 29, 2026; six core analysis areas |
 | Legacy assessment workspace | Done | September 29, 2026; backup verified, repository archived, useful sources retained |
 | R Sampler | In progress | Historical: February 20, 2026 |
@@ -56,11 +57,36 @@ The requested inputs are fishery catch, BTS, ATS and AVO indices through 2026; B
 | Update BTS age compositions through 2026 | To do | Retain actual survey years, age range, sample sizes, expansion method, age-reading provenance and uncertainty; validate composition totals and years against the index inputs. |
 | Receive final ATS 2026 age compositions | Waiting | Confirm final delivery and age-reading method; validate compositions, age range, sample sizes and uncertainty. Preserve zero composition weight for the absent ATS 2020 age sample. |
 | Update fishery ages for 2024 and 2025 | To do | Record fish and haul counts, strata, expansion, age-reading method, uncertainty and revision; validate the terminal composition year as 2025 and preserve source age-method labels. |
-| Update biological and weight-at-age schedules | To do | Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment. |
+| Update biological and weight-at-age schedules | To do | Complete the [WtAgeRe update](#wtagere-update) after its four input deliveries. Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment. |
 | Document ageing error and composition weights | To do | Archive matrices and age methods; distinguish sampled fish, starting sample sizes and final likelihood weights; document all adjustments and preserve zero ATS 2020 composition weight. |
 | Validate and freeze matched model inputs | To do | Check source revisions, observation schedules, dimensions, units, sums, missingness, ageing error and weights; record changes, checksums and the selected input versions before fitting. |
 
 The catch task waits for the October 1 query and a documented full-year completion estimate. The ATS age task waits for the final 2026 delivery. Move a card to Done after checking its completion criteria and recording the dated evidence in the assessment workspace.
+
+## WtAgeRe update {#wtagere-update}
+
+**Status:** Waiting. **Task:** `ebs26-wtage-re`. **Repository:** [afsc-assessments/WtAgeRe](https://github.com/afsc-assessments/WtAgeRe).
+
+Update WtAgeRe after all four weight-at-age inputs are available and validated:
+
+| Required input | Current dependency |
+|---|---|
+| Fishery weight-at-age, 2024 | Await accepted delivery and validation |
+| Fishery weight-at-age, 2025 | Await accepted delivery and validation |
+| Survey weight-at-age, 2025 | Unavailable; await delivery and validation |
+| Survey weight-at-age, 2026 | Unavailable; await delivery and validation |
+
+The sampler estimates supply the fishery input stage. The WtAgeRe fit follows that stage and receipt of the survey weights. The local pollock-preparation wiki records this sequence on its **Fishery catch-at-age and weight-at-age** page ([wiki source](https://github.com/noaa-afsc/pollock_prep/blob/main/wiki/fishery-catch-at-age.qmd)). Retain the survey identifiers and actual survey years in each delivery.
+
+After all four prerequisites are complete:
+
+1. Accept and version the inputs. Record sources, units, age and sex definitions, sampling uncertainty, and treatment of missing values.
+2. Pin the WtAgeRe revision and configuration, then run the model with cohort and year random effects. Record the sigma values for both effects and identify which are estimated and which are supplied.
+3. Verify compilation without warnings, the exit status and logs, a maximum gradient below `1e-4`, and a positive-definite Hessian.
+4. Archive estimated and projected weights, uncertainty, and configuration. Compare the results with the prior accepted weights.
+5. Document the ADMB input mapping and the November change in weight estimation for Model 26.0 (Rceattle), which presently lacks the ADMB cohort/year random-effect feature with input sigmas. Review the consequences before updating assessment inputs or tables.
+
+This task supplies the existing biological-input task (`ebs26-biological-inputs`). The earlier WtAgeRE age-error development card (`c6`) remains a separate task. The update is scheduled; model execution awaits the four accepted input deliveries. Assessment results and draft files stay in the private workspace.
 
 ## Plan Team diagnostics
 
@@ -133,7 +159,7 @@ The following statuses and notes are preserved from February 20, 2026 and await 
 ## WtAgeRE (Age-error)
 
 **Status:** To Do
-**Repo:** [afsc-assessments/ebswp](https://github.com/afsc-assessments/ebswp)
+**Repo:** [afsc-assessments/WtAgeRe](https://github.com/afsc-assessments/WtAgeRe)
 **Goal:** Develop age-error functionality for the `WtAgeRE` model.
 
 ### Sub-tasks

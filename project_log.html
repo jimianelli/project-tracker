@@ -2180,6 +2180,7 @@ vertical-align: -.125em;
   <li><a href="#ebs-pollock-2026" id="toc-ebs-pollock-2026" class="nav-link" data-scroll-target="#ebs-pollock-2026">EBS pollock 2026</a>
   <ul class="collapse">
   <li><a href="#ten-data-gaps-and-completion-criteria" id="toc-ten-data-gaps-and-completion-criteria" class="nav-link" data-scroll-target="#ten-data-gaps-and-completion-criteria">Ten data gaps and completion criteria</a></li>
+  <li><a href="#wtagere-update" id="toc-wtagere-update" class="nav-link" data-scroll-target="#wtagere-update">WtAgeRe update</a></li>
   <li><a href="#plan-team-diagnostics" id="toc-plan-team-diagnostics" class="nav-link" data-scroll-target="#plan-team-diagnostics">Plan Team diagnostics</a></li>
   <li><a href="#legacy-workspace-retirement" id="toc-legacy-workspace-retirement" class="nav-link" data-scroll-target="#legacy-workspace-retirement">Legacy workspace retirement</a></li>
   <li><a href="#r-package-inventory" id="toc-r-package-inventory" class="nav-link" data-scroll-target="#r-package-inventory">R package inventory</a></li>
@@ -2280,46 +2281,51 @@ vertical-align: -.125em;
 <td>September 29, 2026; completion requires the evidence below</td>
 </tr>
 <tr class="even">
+<td>EBS pollock WtAgeRe update</td>
+<td>Waiting</td>
+<td>September 29, 2026; requires four weight-at-age deliveries</td>
+</tr>
+<tr class="odd">
 <td>EBS pollock Plan Team diagnostics</td>
 <td>To do</td>
 <td>September 29, 2026; six core analysis areas</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Legacy assessment workspace</td>
 <td>Done</td>
 <td>September 29, 2026; backup verified, repository archived, useful sources retained</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>R Sampler</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>spmR</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>WtAgeRE</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ADMB pm.tpl</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SporC age-error</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SporC two-area</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Admin</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
@@ -2335,11 +2341,6 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="ten-data-gaps-and-completion-criteria">Ten data gaps and completion criteria</h2>
 <p><a href="data/assessment-data-gaps.csv">Download the data-gap checklist (CSV)</a> · <a href="data/assessment-tasks.json">Task register (JSON)</a></p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Task</th>
@@ -2386,7 +2387,7 @@ vertical-align: -.125em;
 <tr class="even">
 <td>Update biological and weight-at-age schedules</td>
 <td>To do</td>
-<td>Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment.</td>
+<td>Complete the <a href="#wtagere-update">WtAgeRe update</a> after its four input deliveries. Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment.</td>
 </tr>
 <tr class="odd">
 <td>Document ageing error and composition weights</td>
@@ -2401,6 +2402,51 @@ vertical-align: -.125em;
 </tbody>
 </table>
 <p>The catch task waits for the October 1 query and a documented full-year completion estimate. The ATS age task waits for the final 2026 delivery. Move a card to Done after checking its completion criteria and recording the dated evidence in the assessment workspace.</p>
+</section>
+<section id="wtagere-update" class="level2">
+<h2 class="anchored" data-anchor-id="wtagere-update">WtAgeRe update</h2>
+<p><strong>Status:</strong> Waiting. <strong>Task:</strong> <code>ebs26-wtage-re</code>. <strong>Repository:</strong> <a href="https://github.com/afsc-assessments/WtAgeRe">afsc-assessments/WtAgeRe</a>.</p>
+<p>Update WtAgeRe after all four weight-at-age inputs are available and validated:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Required input</th>
+<th>Current dependency</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fishery weight-at-age, 2024</td>
+<td>Await accepted delivery and validation</td>
+</tr>
+<tr class="even">
+<td>Fishery weight-at-age, 2025</td>
+<td>Await accepted delivery and validation</td>
+</tr>
+<tr class="odd">
+<td>Survey weight-at-age, 2025</td>
+<td>Unavailable; await delivery and validation</td>
+</tr>
+<tr class="even">
+<td>Survey weight-at-age, 2026</td>
+<td>Unavailable; await delivery and validation</td>
+</tr>
+</tbody>
+</table>
+<p>The sampler estimates supply the fishery input stage. The WtAgeRe fit follows that stage and receipt of the survey weights. The local pollock-preparation wiki records this sequence on its <strong>Fishery catch-at-age and weight-at-age</strong> page (<a href="https://github.com/noaa-afsc/pollock_prep/blob/main/wiki/fishery-catch-at-age.qmd">wiki source</a>). Retain the survey identifiers and actual survey years in each delivery.</p>
+<p>After all four prerequisites are complete:</p>
+<ol type="1">
+<li>Accept and version the inputs. Record sources, units, age and sex definitions, sampling uncertainty, and treatment of missing values.</li>
+<li>Pin the WtAgeRe revision and configuration, then run the model with cohort and year random effects. Record the sigma values for both effects and identify which are estimated and which are supplied.</li>
+<li>Verify compilation without warnings, the exit status and logs, a maximum gradient below <code>1e-4</code>, and a positive-definite Hessian.</li>
+<li>Archive estimated and projected weights, uncertainty, and configuration. Compare the results with the prior accepted weights.</li>
+<li>Document the ADMB input mapping and the November change in weight estimation for Model 26.0 (Rceattle), which presently lacks the ADMB cohort/year random-effect feature with input sigmas. Review the consequences before updating assessment inputs or tables.</li>
+</ol>
+<p>This task supplies the existing biological-input task (<code>ebs26-biological-inputs</code>). The earlier WtAgeRE age-error development card (<code>c6</code>) remains a separate task. The update is scheduled; model execution awaits the four accepted input deliveries. Assessment results and draft files stay in the private workspace.</p>
 </section>
 <section id="plan-team-diagnostics" class="level2">
 <h2 class="anchored" data-anchor-id="plan-team-diagnostics">Plan Team diagnostics</h2>
@@ -2506,7 +2552,7 @@ vertical-align: -.125em;
 </section>
 <section id="wtagere-age-error" class="level2">
 <h2 class="anchored" data-anchor-id="wtagere-age-error">WtAgeRE (Age-error)</h2>
-<p><strong>Status:</strong> To Do <strong>Repo:</strong> <a href="https://github.com/afsc-assessments/ebswp">afsc-assessments/ebswp</a> <strong>Goal:</strong> Develop age-error functionality for the <code>WtAgeRE</code> model.</p>
+<p><strong>Status:</strong> To Do <strong>Repo:</strong> <a href="https://github.com/afsc-assessments/WtAgeRe">afsc-assessments/WtAgeRe</a> <strong>Goal:</strong> Develop age-error functionality for the <code>WtAgeRE</code> model.</p>
 <section id="sub-tasks-2" class="level3">
 <h3 class="anchored" data-anchor-id="sub-tasks-2">Sub-tasks</h3>
 <table class="caption-top table">

@@ -230,7 +230,7 @@
   <p>Last updated: <span id="lastUpdated">—</span> &nbsp;|&nbsp; Drag cards between columns to update status &nbsp;|&nbsp; Click "notes" to add comments</p>
   <nav class="page-nav" aria-label="Project navigation"><a href="index.html">Project hub</a><a href="project_log.html#ebs-pollock-2026">2026 data gaps and criteria</a><a href="packages.html">R package inventory (22)</a></nav>
 </header>
-<p class="assessment-note">2026 assessment tasks cover ten data updates, Plan Team diagnostics, and preservation of the legacy workspace. Initial task status: September 29, 2026. Model 26.0 (Rceattle) is primary; Model 23.0 provides comparison. The earlier 14 cards retain their saved positions and notes. Assessment results and drafts remain private.</p>
+<p class="assessment-note">2026 assessment tasks cover ten data updates, a WtAgeRe update waiting for fishery and survey weights, Plan Team diagnostics, and preservation of the legacy workspace. Initial task status: September 29, 2026. Model 26.0 (Rceattle) is primary; Model 23.0 provides comparison. The earlier 14 cards retain their saved positions and notes. Assessment results and drafts remain private.</p>
 
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:var(--tag-r)"></div> R</div>
@@ -303,7 +303,7 @@
       <div class="card" draggable="true" data-id="ebs26-biological-inputs">
         <div class="card-title">Update biological and weight-at-age schedules</div>
         <div class="card-project">EBS pollock 2026</div>
-        <p class="card-description">Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment. Account for the ADMB-to-Rceattle weight-at-age method change in the November assessment.</p>
+        <p class="card-description">Assemble fishery and survey weights at age and check the maturity, spawning-weight and natural-mortality inputs used for the assessment. Account for the ADMB-to-Rceattle weight-at-age method change in the November assessment. The WtAgeRe update is tracked separately as ebs26-wtage-re and waits for fishery weights for 2024 and 2025 plus survey weights for 2025 and 2026.</p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Compare each schedule with the baseline; document sources, units, years, missing-year assumptions, and the rationale for any change. Record cohort and year-effect sigma inputs; compare weight estimates and forecasts between Models 23.0 and 26.0; document forecast-year alignment and weight-uncertainty treatment.</p></details>
         <div class="card-tags"><span class="tag tag-R">Assessment</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
@@ -383,7 +383,7 @@
 
       <div class="card" draggable="true" data-id="c6">
         <div class="card-title">Develop age-error for WtAgeRE</div>
-        <div class="card-project">WtAgeRE<a class="card-repo" href="https://github.com/afsc-assessments/ebswp" target="_blank" rel="noopener">↗ afsc-assessments/ebswp</a></div>
+        <div class="card-project">WtAgeRE<a class="card-repo" href="https://github.com/afsc-assessments/WtAgeRe" target="_blank" rel="noopener">↗ afsc-assessments/WtAgeRe</a></div>
         <div class="card-tags"><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
@@ -493,6 +493,17 @@
       <span class="col-count" id="count-review">0</span>
     </div>
     <div class="cards" id="cards-review">
+
+      <div class="card" draggable="true" data-id="ebs26-wtage-re">
+        <div class="card-title">Update WtAgeRe after fishery and survey weight-at-age inputs arrive</div>
+        <div class="card-project">EBS pollock 2026<a class="card-repo" href="https://github.com/afsc-assessments/WtAgeRe" target="_blank" rel="noopener">↗ afsc-assessments/WtAgeRe</a></div>
+        <p class="card-description">Waiting for all four accepted weight-at-age inputs: fishery 2024, fishery 2025, survey 2025, and survey 2026. The survey weights remain unavailable. Begin the WtAgeRe update after all four deliveries are available and validated; keep this assessment update separate from the earlier age-error development task.</p>
+        <p class="card-description"><a href="project_log.html#wtagere-update">Input checklist and update sequence</a> · <a href="https://github.com/noaa-afsc/pollock_prep/blob/main/wiki/fishery-catch-at-age.qmd" target="_blank" rel="noopener">Wiki source</a></p>
+        <details class="card-criteria"><summary>Completion criteria</summary><p>Accept and version the four input deliveries, including source, units, age and sex definitions, sampling uncertainty, and missing-value treatment. Pin the WtAgeRe revision and configuration, then run the model with cohort and year random effects. Verify compilation without warnings, exit status and logs, a maximum gradient below 1e-4, and a positive-definite Hessian. Archive estimated and projected weights, uncertainty, and cohort/year sigma values, identifying which are estimated and which are supplied; compare with the prior accepted weights. Document the ADMB input mapping and the weight-method difference for Model 26.0 (Rceattle) before updating assessment inputs or tables.</p></details>
+        <div class="card-tags"><span class="tag tag-R">Assessment</span><span class="tag tag-R">R</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea aria-label="Notes for Update WtAgeRe after fishery and survey weight-at-age inputs arrive" placeholder="Add notes here…"></textarea></div>
+      </div>
 
       <div class="card" draggable="true" data-id="ebs26-catch">
         <div class="card-title">Finalize 2025 catch and update 2026 catch</div>
