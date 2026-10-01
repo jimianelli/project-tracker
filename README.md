@@ -7,7 +7,7 @@ Jim's project hub, kanban board, R package inventory, and Quarto project log.
 | File | Purpose |
 |---|---|
 | `index.html` | Navigation and dated project overview |
-| `kanban.html` | Four-column board with 14 preserved project cards, 13 assessment cards and six Rceattle development cards |
+| `kanban.html` | Four active columns and a collapsible lower-priority backlog; 14 project cards, 13 assessment cards and six Rceattle development cards |
 | `project_log.qmd` | Editable log, ten assessment data gaps, completion criteria, and historical project notes |
 | `project_log.html` | Rendered project log |
 | `packages.html` | Inventory of 22 R packages with repository and documentation links |
@@ -17,9 +17,11 @@ Jim's project hub, kanban board, R package inventory, and Quarto project log.
 
 ## Board behavior
 
-Open `kanban.html`, move cards, add notes, or create custom cards. State is saved under the existing `kanban_state` and `kanban_updated` browser-local keys. Saved cards retain their order, column and notes. Newly supplied cards are appended after saved cards in their initial columns. Custom cards are restored as plain text. State stays in the current browser and site origin; the dated project log is maintained separately.
+Open `kanban.html`, move cards, add notes, or create custom cards. State is saved under the existing `kanban_state` and `kanban_updated` browser-local keys. Saved cards retain their order, column and notes. The October 1 SPoRC priority change moves `c8`, `c9`, `c10` and `c14` into `backlog` once, preserving notes and the saved update timestamp. `kanban_priority_revision` records that migration; later user moves take precedence. Newly supplied cards are appended after saved cards in their initial columns. Custom cards are restored as plain text. State stays in the current browser and site origin; the dated project log is maintained separately.
 
-Initial assessment status on September 29, 2026: eight data tasks and the diagnostics task are To Do; catch extraction, final ATS ages, and the WtAgeRe model update are Waiting; legacy-workspace preservation and repository archival is Done. The 14 earlier project cards are retained. Their published status comes from the historical February 20 log; browser-saved positions take precedence.
+Initial assessment status on September 29, 2026: eight data tasks and the diagnostics task are To Do; catch extraction, final ATS ages, and the WtAgeRe model update are Waiting; legacy-workspace preservation and repository archival is Done. The 14 earlier project cards are retained. Their published status comes from the historical February 20 log; browser-saved positions take precedence after the one-time SPoRC priority change.
+
+Rceattle cards use teal tags, a teal border and a pale teal background. SPoRC tasks are deferred in the collapsible Lower priority section. Expand it to view notes or drag tasks back into an active column.
 
 ## Rceattle development
 

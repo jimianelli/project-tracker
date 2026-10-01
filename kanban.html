@@ -16,6 +16,7 @@
       --accent-done: #5a9c6f;
       --accent-blocked: #c0534a;
       --tag-r: #3e7fc1;
+      --tag-rceattle: #006d77;
       --tag-admb: #7b5ea7;
       --tag-admin: #888;
       --shadow: 0 1px 4px rgba(0,0,0,0.12);
@@ -123,6 +124,8 @@
       color: #fff;
       letter-spacing: 0.02em;
     }
+    .card.rceattle-card { border-left: 4px solid var(--tag-rceattle); background: #f1fbfa; }
+    .tag-Rceattle { background: var(--tag-rceattle); }
     .tag-R    { background: var(--tag-r); }
     .tag-ADMB { background: var(--tag-admb); }
     .tag-Admin{ background: var(--tag-admin); }
@@ -214,6 +217,13 @@
     .legend-dot {
       width: 8px; height: 8px; border-radius: 50%;
     }
+    .backlog-column { max-width: 1128px; min-height: 0; margin-bottom: 16px; }
+    .backlog-column > summary { cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--col-header); font-weight: 600; font-size: .85rem; }
+    .backlog-column > summary::before { content: '▸'; }
+    .backlog-column[open] > summary::before { content: '▾'; }
+    .backlog-column .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; margin-top: 12px; }
+    .backlog-column .card { margin-bottom: 0; }
+    .backlog-note { font-size: .8rem; color: #485361; margin-top: 10px; line-height: 1.5; }
     .page-nav { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; font-size: .85rem; }
     .page-nav a { color: #235586; }
     .assessment-note { max-width: 900px; font-size: .86rem; line-height: 1.55; margin: 0 0 20px; color: #485361; }
@@ -230,14 +240,61 @@
   <p>Last updated: <span id="lastUpdated">—</span> &nbsp;|&nbsp; Drag cards between columns to update status &nbsp;|&nbsp; Click "notes" to add comments</p>
   <nav class="page-nav" aria-label="Project navigation"><a href="index.html">Project hub</a><a href="project_log.html#ebs-pollock-2026">2026 data gaps and criteria</a><a href="project_log.html#rceattle-development">Rceattle development</a><a href="packages.html">R package inventory (22)</a></nav>
 </header>
-<p class="assessment-note">Six Rceattle development cards added October 1, 2026 cover the package update, compiler warnings, DSEM documentation and evaluation, projection handoff, and the 2026 refit. The assessment tasks cover ten data updates, a WtAgeRe update waiting for fishery and survey weights, Plan Team diagnostics, and preservation of the legacy workspace; their initial status is dated September 29, 2026. Model 26.0 (Rceattle) is primary; Model 23.0 provides comparison. The earlier 14 cards retain their saved positions and notes. Assessment results and drafts remain private.</p>
+<p class="assessment-note">Six Rceattle development cards added October 1, 2026 cover the package update, compiler warnings, DSEM documentation and evaluation, projection handoff, and the 2026 refit. The assessment tasks cover ten data updates, a WtAgeRe update waiting for fishery and survey weights, Plan Team diagnostics, and preservation of the legacy workspace; their initial status is dated September 29, 2026. Model 26.0 (Rceattle) is primary; Model 23.0 provides comparison. SPoRC tasks are lower priority from October 1, 2026 and appear in the collapsible backlog. Saved notes are preserved; other cards retain their saved positions. Assessment results and drafts remain private.</p>
 
 <div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--tag-rceattle)"></div> Rceattle</div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--tag-r)"></div> R</div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--tag-admb)"></div> ADMB</div>
   <div class="legend-item"><div class="legend-dot" style="background:var(--tag-admin)"></div> Admin</div>
   <div class="legend-item"><div class="legend-dot" style="background:#c06a2a"></div> SporC</div>
 </div>
+
+<details class="column backlog-column" id="col-backlog" data-col="backlog">
+  <summary><span>Lower priority · SPoRC</span><span class="col-count" id="count-backlog">0</span></summary>
+  <p class="backlog-note">Deferred October 1, 2026. Expand to view tasks and notes. Drag a card into an active column when ready to resume it.</p>
+  <div class="cards" id="cards-backlog">
+      <div class="card" draggable="true" data-id="c8">
+        <div class="card-title">Age-error specs in SporC</div>
+        <div class="card-project">SporC<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c9">
+        <div class="card-title">Check Russian assessment results</div>
+        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c10">
+        <div class="card-title">Develop defaults for two-area SporC</div>
+        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+
+      <div class="card" draggable="true" data-id="c14">
+        <div class="card-title">Two-area version of SporC</div>
+        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
+        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
+        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
+        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
+      </div>
+  </div>
+  <button class="add-card-btn" onclick="showAddForm('backlog')">+ Add card</button>
+  <div class="add-card-form" id="addform-backlog">
+    <input type="text" id="newtitle-backlog" placeholder="Card title…" />
+    <div class="form-row">
+      <button class="btn-add" onclick="addCard('backlog')">Add</button>
+      <button class="btn-cancel" onclick="hideAddForm('backlog')">Cancel</button>
+    </div>
+  </div>
+</details>
 
 <div class="board" id="board">
 
@@ -250,13 +307,13 @@
     </div>
     <div class="cards" id="cards-todo">
 
-      <div class="card" id="rceattle-compiler-warnings" draggable="true" data-id="rceattle-compiler-warnings">
+      <div class="card rceattle-card" id="rceattle-compiler-warnings" draggable="true" data-id="rceattle-compiler-warnings">
         <div class="card-title">Rceattle: resolve compiler warnings</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">Follow up on the compiler warnings recorded during the dev 5.45.1 build, including Boolean bitwise operators and Eigen dependency warnings.</p>
         <p class="card-description"><a href="project_log.html#rceattle-compiler-warnings">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Identify package and dependency causes, apply and review the appropriate fixes, rebuild from a clean process without warnings, and repeat the matched-baseline and reference checks. Archive the build log, exit status, source revision, gradients and Hessian checks.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: resolve compiler warnings" placeholder="Add notes here…"></textarea></div>
       </div>
@@ -408,29 +465,8 @@
         <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
       </div>
 
-      <div class="card" draggable="true" data-id="c8">
-        <div class="card-title">Age-error specs in SporC</div>
-        <div class="card-project">SporC<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
-        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
-        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
-        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
-      </div>
 
-      <div class="card" draggable="true" data-id="c9">
-        <div class="card-title">Check Russian assessment results</div>
-        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
-        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
-        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
-        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
-      </div>
 
-      <div class="card" draggable="true" data-id="c10">
-        <div class="card-title">Develop defaults for two-area SporC</div>
-        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
-        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
-        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
-        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
-      </div>
 
     </div>
     <button class="add-card-btn" onclick="showAddForm('todo')">+ Add card</button>
@@ -452,13 +488,13 @@
     </div>
     <div class="cards" id="cards-progress">
 
-      <div class="card" id="rceattle-dsem-evaluation" draggable="true" data-id="rceattle-dsem-evaluation">
+      <div class="card rceattle-card" id="rceattle-dsem-evaluation" draggable="true" data-id="rceattle-dsem-evaluation">
         <div class="card-title">Rceattle: evaluate DSEM recruitment covariates</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">Continue the exploratory cold-pool and late-summer SST evaluation on the pinned DSEM integration branch. Pilot fits and effect plots are available locally; predictive checks, sensitivity analysis and assessment-use review remain open.</p>
         <p class="card-description"><a href="project_log.html#rceattle-dsem-evaluation">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Version covariate sources, units, scaling, missing values and cohort alignment. Compare models against a reference with the same environmental likelihood; assess forecast performance, influential cohorts and effects on recruitment and biomass. Verify gradients below 1e-4 and positive-definite Hessians, and document the projection-year and DSEM MSE restrictions before extending use.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: evaluate DSEM recruitment covariates" placeholder="Add notes here…"></textarea></div>
       </div>
@@ -488,13 +524,6 @@
         <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
       </div>
 
-      <div class="card" draggable="true" data-id="c14">
-        <div class="card-title">Two-area version of SporC</div>
-        <div class="card-project">SporC – Two-area<a class="card-repo" href="https://github.com/jimianelli/SPoRC" target="_blank" rel="noopener">↗ jimianelli/SPoRC</a></div>
-        <div class="card-tags"><span class="tag tag-SporC">SporC</span></div>
-        <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
-        <div class="notes-area"><textarea placeholder="Add notes here…"></textarea></div>
-      </div>
 
     </div>
     <button class="add-card-btn" onclick="showAddForm('progress')">+ Add card</button>
@@ -516,24 +545,24 @@
     </div>
     <div class="cards" id="cards-review">
 
-      <div class="card" id="rceattle-spmr-handoff" draggable="true" data-id="rceattle-spmr-handoff">
+      <div class="card rceattle-card" id="rceattle-spmr-handoff" draggable="true" data-id="rceattle-spmr-handoff">
         <div class="card-title">Rceattle: resolve spmR projection handoff checks</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">The projection replay is reproducible. Assessment use waits for resolution of recruitment variability, population-weight schedules and starting-year alignment in the Rceattle-to-spmR handoff.</p>
         <p class="card-description"><a href="project_log.html#rceattle-spmr-handoff">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Document recruitment units and sex allocation, population/spawning/fishery weights, missing male-weight treatment, starting abundance year and forecast-year alignment. Compare biomass and harvest outputs with matched native projections and the ADMB comparison. Retain input provenance, reproducible checks and a reviewed interpretation before using management tables.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: resolve spmR projection handoff checks" placeholder="Add notes here…"></textarea></div>
       </div>
 
-      <div class="card" id="rceattle-2026-refit" draggable="true" data-id="rceattle-2026-refit">
+      <div class="card rceattle-card" id="rceattle-2026-refit" draggable="true" data-id="rceattle-2026-refit">
         <div class="card-title">Rceattle: refit Model 26.0 with accepted 2026 inputs</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">The private 2026 draft is prepared. The refit waits for accepted catch, survey and age-composition inputs, the WtAgeRe weight update and the matched-input check. Link the resulting fit to the existing Plan Team diagnostics task.</p>
         <p class="card-description"><a href="project_log.html#rceattle-2026-refit">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Complete the assessment data tasks and ebs26-wtage-re, then freeze the inputs under ebs26-input-freeze. Pin the Rceattle revision and configuration; compile without warnings and verify logs, exit status, maximum gradient below 1e-4 and a positive-definite Hessian. Complete ebs26-plan-team and projection validation, compare with Model 23.0, and retain the draft and results privately until release is authorized.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: refit Model 26.0 with accepted 2026 inputs" placeholder="Add notes here…"></textarea></div>
       </div>
@@ -589,24 +618,24 @@
     </div>
     <div class="cards" id="cards-done">
 
-      <div class="card" id="rceattle-version-validation" draggable="true" data-id="rceattle-version-validation">
+      <div class="card rceattle-card" id="rceattle-version-validation" draggable="true" data-id="rceattle-version-validation">
         <div class="card-title">Rceattle: validate the 5.45.1 package update</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">Completed the September 28 numerical comparison of dev 5.45.1 with the prior 5.23.0 baseline using matched inputs, parameter checks, refits and reference models. Compiler-warning cleanup has its own open task.</p>
         <p class="card-description"><a href="project_log.html#rceattle-version-validation">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Retain pinned revisions, separate package libraries, matched inputs and parameters, likelihood and prediction comparisons, fresh-process refits, reference checks, exit codes and logs. Verify maximum gradients below 1e-4 and positive-definite Hessians; record compiler warnings separately.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: validate the 5.45.1 package update" placeholder="Add notes here…"></textarea></div>
       </div>
 
-      <div class="card" id="rceattle-dsem-guide" draggable="true" data-id="rceattle-dsem-guide">
+      <div class="card rceattle-card" id="rceattle-dsem-guide" draggable="true" data-id="rceattle-dsem-guide">
         <div class="card-title">Rceattle: document DSEM and covariate inputs</div>
         <div class="card-project">Rceattle development<a class="card-repo" href="https://github.com/grantdadams/Rceattle" target="_blank" rel="noopener">↗ grantdadams/Rceattle</a></div>
         <p class="card-description">Completed the local Quarto guide and fishery-wiki integration covering dynamic structural equation models (DSEM), equations, flags, annual covariates, lags and recruitment-year alignment. The guide distinguishes dev 5.45.1 from the separate dsem-v5-integration branch.</p>
         <p class="card-description"><a href="project_log.html#rceattle-dsem-guide">Dated status and development checklist</a></p>
         <details class="card-criteria"><summary>Completion criteria</summary><p>Retain editable source, pinned implementation links, reproducible input examples and a verified HTML render. Check navigation, figures, internal links and wiki integration. Keep the guide and fitted assessment examples in the private workspace.</p></details>
-        <div class="card-tags"><span class="tag tag-R">Rceattle</span><span class="tag tag-R">R</span></div>
+        <div class="card-tags"><span class="tag tag-Rceattle">Rceattle</span><span class="tag tag-R">R</span></div>
         <span class="card-expand" onclick="toggleNotes(this)">▸ notes</span>
         <div class="notes-area"><textarea aria-label="Notes for Rceattle: document DSEM and covariate inputs" placeholder="Add notes here…"></textarea></div>
       </div>
@@ -638,17 +667,20 @@
 
 <script>
   let dragCard = null;
+  const columns = ['todo', 'progress', 'review', 'done', 'backlog'];
+  const priorityRevision = '2026-10-01-sporc-backlog';
+  const lowerPriorityIds = new Set(['c8', 'c9', 'c10', 'c14']);
 
   function updateCounts() {
-    ['todo','progress','review','done'].forEach(col => {
+    columns.forEach(col => {
       const n = document.getElementById('cards-' + col).querySelectorAll('.card').length;
       document.getElementById('count-' + col).textContent = n;
     });
   }
 
-  function saveState() {
+  function saveState(updateTimestamp = true) {
     const state = {};
-    ['todo','progress','review','done'].forEach(col => {
+    columns.forEach(col => {
       const container = document.getElementById('cards-' + col);
       state[col] = Array.from(container.querySelectorAll('.card')).map(card => ({
         id: card.dataset.id,
@@ -659,8 +691,12 @@
       }));
     });
     localStorage.setItem('kanban_state', JSON.stringify(state));
-    localStorage.setItem('kanban_updated', new Date().toLocaleString());
-    document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+    localStorage.setItem('kanban_priority_revision', priorityRevision);
+    if (updateTimestamp) {
+      const updated = new Date().toLocaleString();
+      localStorage.setItem('kanban_updated', updated);
+      document.getElementById('lastUpdated').textContent = updated;
+    }
   }
 
   // Build custom cards with text nodes so saved titles and notes remain plain text.
@@ -668,6 +704,7 @@
     const card = document.createElement('div');
     card.className = 'card';
     card.draggable = true;
+    if (Array.isArray(item.tags) && item.tags.includes('Rceattle')) card.classList.add('rceattle-card');
     card.dataset.id = item.id;
     const title = document.createElement('div');
     title.className = 'card-title';
@@ -677,7 +714,7 @@
     project.textContent = typeof item.project === 'string' ? item.project : '—';
     const tags = document.createElement('div');
     tags.className = 'card-tags';
-    const tagClasses = { Rceattle: 'tag-R', R: 'tag-R', ADMB: 'tag-ADMB', Admin: 'tag-Admin', SporC: 'tag-SporC' };
+    const tagClasses = { Rceattle: 'tag-Rceattle', R: 'tag-R', ADMB: 'tag-ADMB', Admin: 'tag-Admin', SporC: 'tag-SporC' };
     (Array.isArray(item.tags) ? item.tags : []).forEach(label => {
       if (typeof label !== 'string') return;
       const tag = document.createElement('span');
@@ -702,10 +739,11 @@
 
   function loadState() {
     const status = document.getElementById('lastUpdated');
-    let saved, updated, state;
+    let saved, updated, state, savedPriorityRevision;
     try {
       saved = localStorage.getItem('kanban_state');
       updated = localStorage.getItem('kanban_updated');
+      savedPriorityRevision = localStorage.getItem('kanban_priority_revision');
       state = saved ? JSON.parse(saved) : null;
       if (state !== null && (typeof state !== 'object' || Array.isArray(state))) throw new Error('Invalid board state');
     } catch (error) {
@@ -715,7 +753,7 @@
     }
     status.textContent = updated || 'Initial board (move a card or add a note to save)';
     if (!state) { updateCounts(); return; }
-    const columns = ['todo', 'progress', 'review', 'done'];
+    const migratePriorities = savedPriorityRevision !== priorityRevision;
     const cardsById = new Map(Array.from(document.querySelectorAll('.card')).map(card => [card.dataset.id, card]));
     const restoredIds = new Set();
     const restored = Object.fromEntries(columns.map(col => [col, []]));
@@ -725,7 +763,8 @@
         const card = cardsById.get(item.id) || createCustomCard(item);
         const notes = card.querySelector('textarea');
         if (notes && typeof item.notes === 'string') notes.value = item.notes;
-        restored[col].push(card);
+        const destination = migratePriorities && lowerPriorityIds.has(item.id) ? 'backlog' : col;
+        restored[destination].push(card);
         restoredIds.add(item.id);
       });
     });
@@ -735,7 +774,12 @@
         .filter(card => !restoredIds.has(card.dataset.id))
     ]));
     columns.forEach(col => document.getElementById('cards-' + col).replaceChildren(...restored[col], ...additions[col]));
-    // Loading preserves storage; only a user change writes the merged board.
+    // Apply the requested priority change once and preserve the user's timestamp.
+    // Later moves out of the backlog retain their saved destination.
+    if (migratePriorities) {
+      try { saveState(false); }
+      catch (error) { status.textContent = 'Lower-priority layout shown; browser storage could not be updated'; }
+    }
     updateCounts();
   }
 
@@ -793,7 +837,7 @@
   }
 
   // Enter key in add form
-  ['todo','progress','review','done'].forEach(col => {
+  columns.forEach(col => {
     const inp = document.getElementById('newtitle-' + col);
     if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') addCard(col); });
   });

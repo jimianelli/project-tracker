@@ -36,8 +36,8 @@ This log records project tasks and completion criteria. The assessment checklist
 | spmR | In progress | Historical: February 20, 2026 |
 | WtAgeRE | To do | Historical: February 20, 2026 |
 | ADMB pm.tpl | In progress | Historical: February 20, 2026 |
-| SporC age-error | To do | Historical: February 20, 2026 |
-| SporC two-area | In progress | Historical: February 20, 2026 |
+| SPoRC age-error | Lower priority | October 1, 2026; deferred to the board backlog |
+| SPoRC two-area | Lower priority | October 1, 2026; deferred to the board backlog |
 | Admin | To do | Historical: February 20, 2026 |
 
 # EBS pollock 2026 {#ebs-pollock-2026}
@@ -189,6 +189,12 @@ The private 2026 draft is prepared. The refit waits for accepted catch, survey a
 The refit depends on the existing [assessment data checklist](#ebs-pollock-2026), [WtAgeRe update](#wtagere-update), and matched-input task (`ebs26-input-freeze`). The six [Plan Team diagnostic areas](#plan-team-diagnostics) remain under `ebs26-plan-team`; this development checklist links to that work. DSEM evaluation remains exploratory, and the ordinary `dev` package and DSEM integration branch have separate validation records.
 
 ---
+
+# Project priorities {#project-priorities}
+
+**October 1, 2026:** Rceattle has a distinct teal color on the board. SPoRC work moves to the collapsible **Lower priority** backlog: age-error specifications (`c8`), Russian assessment results (`c9`), two-area defaults (`c10`), and the two-area version (`c14`). These tasks are deferred. Their repository links and saved notes are retained.
+
+The board applies this priority change once to existing browser-saved cards, preserving other card positions and notes. Drag a task from the backlog into an active column when work resumes; that later choice is saved. The earlier project record below retains the February status and progress notes.
 
 # Earlier project record
 
