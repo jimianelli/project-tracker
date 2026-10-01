@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-29">
+<meta name="dcterms.date" content="2026-10-01">
 
 <title>Jim’s Project Log</title>
 <style>
@@ -2185,6 +2185,15 @@ vertical-align: -.125em;
   <li><a href="#legacy-workspace-retirement" id="toc-legacy-workspace-retirement" class="nav-link" data-scroll-target="#legacy-workspace-retirement">Legacy workspace retirement</a></li>
   <li><a href="#r-package-inventory" id="toc-r-package-inventory" class="nav-link" data-scroll-target="#r-package-inventory">R package inventory</a></li>
   </ul></li>
+  <li><a href="#rceattle-development" id="toc-rceattle-development" class="nav-link" data-scroll-target="#rceattle-development">Rceattle development</a>
+  <ul class="collapse">
+  <li><a href="#rceattle-version-validation" id="toc-rceattle-version-validation" class="nav-link" data-scroll-target="#rceattle-version-validation">Rceattle: validate the 5.45.1 package update</a></li>
+  <li><a href="#rceattle-compiler-warnings" id="toc-rceattle-compiler-warnings" class="nav-link" data-scroll-target="#rceattle-compiler-warnings">Rceattle: resolve compiler warnings</a></li>
+  <li><a href="#rceattle-dsem-guide" id="toc-rceattle-dsem-guide" class="nav-link" data-scroll-target="#rceattle-dsem-guide">Rceattle: document DSEM and covariate inputs</a></li>
+  <li><a href="#rceattle-dsem-evaluation" id="toc-rceattle-dsem-evaluation" class="nav-link" data-scroll-target="#rceattle-dsem-evaluation">Rceattle: evaluate DSEM recruitment covariates</a></li>
+  <li><a href="#rceattle-spmr-handoff" id="toc-rceattle-spmr-handoff" class="nav-link" data-scroll-target="#rceattle-spmr-handoff">Rceattle: resolve spmR projection handoff checks</a></li>
+  <li><a href="#rceattle-2026-refit" id="toc-rceattle-2026-refit" class="nav-link" data-scroll-target="#rceattle-2026-refit">Rceattle: refit Model 26.0 with accepted 2026 inputs</a></li>
+  </ul></li>
   <li><a href="#earlier-project-record" id="toc-earlier-project-record" class="nav-link" data-scroll-target="#earlier-project-record">Earlier project record</a>
   <ul class="collapse">
   <li><a href="#r-sampler" id="toc-r-sampler" class="nav-link" data-scroll-target="#r-sampler">R Sampler</a>
@@ -2228,7 +2237,7 @@ vertical-align: -.125em;
   <li><a href="#week-of-___________" id="toc-week-of-___________" class="nav-link" data-scroll-target="#week-of-___________">Week of: ___________</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="project_log.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -2245,7 +2254,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2026</p>
+      <p class="date">October 1, 2026</p>
     </div>
   </div>
   
@@ -2260,7 +2269,7 @@ vertical-align: -.125em;
 <p><a href="index.html">Project hub</a> · <a href="kanban.html">Kanban board</a> · <a href="packages.html">R package inventory (22)</a></p>
 <section id="overview" class="level1">
 <h1>Overview</h1>
-<p>This log records project tasks and completion criteria. The assessment checklist was added on September 29, 2026. Earlier project entries are retained as a historical snapshot from February 20, 2026; their status labels require a current review. Browser-saved card positions and notes remain independent of this log.</p>
+<p>This log records project tasks and completion criteria. The assessment checklist was added on September 29, 2026, and the Rceattle development checklist on October 1, 2026. Earlier project entries are retained as a historical snapshot from February 20, 2026; their status labels require a current review. Browser-saved card positions and notes remain independent of this log.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -2276,56 +2285,61 @@ vertical-align: -.125em;
 </thead>
 <tbody>
 <tr class="odd">
+<td>Rceattle development</td>
+<td>One in progress; two waiting; one to do; two done</td>
+<td>October 1, 2026; six dedicated development cards</td>
+</tr>
+<tr class="even">
 <td>EBS pollock 2026 data</td>
 <td>Ten open tasks; two waiting</td>
 <td>September 29, 2026; completion requires the evidence below</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>EBS pollock WtAgeRe update</td>
 <td>Waiting</td>
 <td>September 29, 2026; requires four weight-at-age deliveries</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>EBS pollock Plan Team diagnostics</td>
 <td>To do</td>
 <td>September 29, 2026; six core analysis areas</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Legacy assessment workspace</td>
 <td>Done</td>
 <td>September 29, 2026; backup verified, repository archived, useful sources retained</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>R Sampler</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>spmR</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>WtAgeRE</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ADMB pm.tpl</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SporC age-error</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>SporC two-area</td>
 <td>In progress</td>
 <td>Historical: February 20, 2026</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Admin</td>
 <td>To do</td>
 <td>Historical: February 20, 2026</td>
@@ -2467,6 +2481,89 @@ vertical-align: -.125em;
 <section id="r-package-inventory" class="level2">
 <h2 class="anchored" data-anchor-id="r-package-inventory">R package inventory</h2>
 <p>The <a href="packages.html">22-package inventory</a> provides package versions, repository and documentation links. It supports finding the software relevant to each task. Package inclusion records its presence in the R-universe listing; available versions and failed attempts are distinguished. Model validation belongs with the selected assessment run.</p>
+<hr>
+</section>
+</section>
+<section id="rceattle-development" class="level1">
+<h1>Rceattle development</h1>
+<p><strong>Status recorded:</strong> October 1, 2026. <strong>Repository:</strong> <a href="https://github.com/grantdadams/Rceattle">grantdadams/Rceattle</a>. <a href="data/rceattle-tasks.json">Development task register (JSON)</a>.</p>
+<p>Six dedicated cards track package development and the EBS Model 26.0 application. Their initial columns follow the saved September 28–29 validation and development records, rechecked on October 1. Browser-saved positions and notes take precedence for personal board use. The public tracker contains task descriptions and status; assessment results, evidence files, the methods guide and draft remain in the private workspace.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Development task</th>
+<th>Initial status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#rceattle-version-validation">Rceattle: validate the 5.45.1 package update</a></td>
+<td>Done</td>
+</tr>
+<tr class="even">
+<td><a href="#rceattle-compiler-warnings">Rceattle: resolve compiler warnings</a></td>
+<td>To do</td>
+</tr>
+<tr class="odd">
+<td><a href="#rceattle-dsem-guide">Rceattle: document DSEM and covariate inputs</a></td>
+<td>Done</td>
+</tr>
+<tr class="even">
+<td><a href="#rceattle-dsem-evaluation">Rceattle: evaluate DSEM recruitment covariates</a></td>
+<td>In progress</td>
+</tr>
+<tr class="odd">
+<td><a href="#rceattle-spmr-handoff">Rceattle: resolve spmR projection handoff checks</a></td>
+<td>Waiting</td>
+</tr>
+<tr class="even">
+<td><a href="#rceattle-2026-refit">Rceattle: refit Model 26.0 with accepted 2026 inputs</a></td>
+<td>Waiting</td>
+</tr>
+</tbody>
+</table>
+<section id="rceattle-version-validation" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-version-validation">Rceattle: validate the 5.45.1 package update</h2>
+<p><strong>Status:</strong> Done. <strong>Task:</strong> <code>rceattle-version-validation</code>. <a href="kanban.html#rceattle-version-validation">Board card</a>.</p>
+<p>Completed the September 28 numerical comparison of dev 5.45.1 with the prior 5.23.0 baseline using matched inputs, parameter checks, refits and reference models. Compiler-warning cleanup has its own open task.</p>
+<p><strong>Completion criteria:</strong> Retain pinned revisions, separate package libraries, matched inputs and parameters, likelihood and prediction comparisons, fresh-process refits, reference checks, exit codes and logs. Verify maximum gradients below 1e-4 and positive-definite Hessians; record compiler warnings separately.</p>
+<p><strong>Status basis:</strong> September 28 package-comparison records were rechecked on October 1. This Done status covers numerical equivalence for the tested baseline.</p>
+</section>
+<section id="rceattle-compiler-warnings" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-compiler-warnings">Rceattle: resolve compiler warnings</h2>
+<p><strong>Status:</strong> To do. <strong>Task:</strong> <code>rceattle-compiler-warnings</code>. <a href="kanban.html#rceattle-compiler-warnings">Board card</a>.</p>
+<p>Follow up on the compiler warnings recorded during the dev 5.45.1 build, including Boolean bitwise operators and Eigen dependency warnings.</p>
+<p><strong>Completion criteria:</strong> Identify package and dependency causes, apply and review the appropriate fixes, rebuild from a clean process without warnings, and repeat the matched-baseline and reference checks. Archive the build log, exit status, source revision, gradients and Hessian checks.</p>
+<p><strong>Status basis:</strong> The saved September 28 installation log contains compiler warnings; warning-free compilation remains open.</p>
+</section>
+<section id="rceattle-dsem-guide" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-dsem-guide">Rceattle: document DSEM and covariate inputs</h2>
+<p><strong>Status:</strong> Done. <strong>Task:</strong> <code>rceattle-dsem-guide</code>. <a href="kanban.html#rceattle-dsem-guide">Board card</a>.</p>
+<p>Completed the local Quarto guide and fishery-wiki integration covering dynamic structural equation models (DSEM), equations, flags, annual covariates, lags and recruitment-year alignment. The guide distinguishes dev 5.45.1 from the separate dsem-v5-integration branch.</p>
+<p><strong>Completion criteria:</strong> Retain editable source, pinned implementation links, reproducible input examples and a verified HTML render. Check navigation, figures, internal links and wiki integration. Keep the guide and fitted assessment examples in the private workspace.</p>
+<p><strong>Status basis:</strong> September 28 guide, render-validation records and local wiki integration were rechecked on October 1.</p>
+</section>
+<section id="rceattle-dsem-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-dsem-evaluation">Rceattle: evaluate DSEM recruitment covariates</h2>
+<p><strong>Status:</strong> In progress. <strong>Task:</strong> <code>rceattle-dsem-evaluation</code>. <a href="kanban.html#rceattle-dsem-evaluation">Board card</a>.</p>
+<p>Continue the exploratory cold-pool and late-summer SST evaluation on the pinned DSEM integration branch. Pilot fits and effect plots are available locally; predictive checks, sensitivity analysis and assessment-use review remain open.</p>
+<p><strong>Completion criteria:</strong> Version covariate sources, units, scaling, missing values and cohort alignment. Compare models against a reference with the same environmental likelihood; assess forecast performance, influential cohorts and effects on recruitment and biomass. Verify gradients below 1e-4 and positive-definite Hessians, and document the projection-year and DSEM MSE restrictions before extending use.</p>
+<p><strong>Status basis:</strong> September 28 pilot-fit and methods records support completed exploratory work and remaining evaluation.</p>
+</section>
+<section id="rceattle-spmr-handoff" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-spmr-handoff">Rceattle: resolve spmR projection handoff checks</h2>
+<p><strong>Status:</strong> Waiting. <strong>Task:</strong> <code>rceattle-spmr-handoff</code>. <a href="kanban.html#rceattle-spmr-handoff">Board card</a>.</p>
+<p>The projection replay is reproducible. Assessment use waits for resolution of recruitment variability, population-weight schedules and starting-year alignment in the Rceattle-to-spmR handoff.</p>
+<p><strong>Completion criteria:</strong> Document recruitment units and sex allocation, population/spawning/fishery weights, missing male-weight treatment, starting abundance year and forecast-year alignment. Compare biomass and harvest outputs with matched native projections and the ADMB comparison. Retain input provenance, reproducible checks and a reviewed interpretation before using management tables.</p>
+<p><strong>Status basis:</strong> The September 29 validation summary records successful execution and unresolved scientific checks; follow-up fixes require verification.</p>
+</section>
+<section id="rceattle-2026-refit" class="level2">
+<h2 class="anchored" data-anchor-id="rceattle-2026-refit">Rceattle: refit Model 26.0 with accepted 2026 inputs</h2>
+<p><strong>Status:</strong> Waiting. <strong>Task:</strong> <code>rceattle-2026-refit</code>. <a href="kanban.html#rceattle-2026-refit">Board card</a>.</p>
+<p>The private 2026 draft is prepared. The refit waits for accepted catch, survey and age-composition inputs, the WtAgeRe weight update and the matched-input check. Link the resulting fit to the existing Plan Team diagnostics task.</p>
+<p><strong>Completion criteria:</strong> Complete the assessment data tasks and ebs26-wtage-re, then freeze the inputs under ebs26-input-freeze. Pin the Rceattle revision and configuration; compile without warnings and verify logs, exit status, maximum gradient below 1e-4 and a positive-definite Hessian. Complete ebs26-plan-team and projection validation, compare with Model 23.0, and retain the draft and results privately until release is authorized.</p>
+<p><strong>Status basis:</strong> The private 2026 draft and input register record outstanding accepted inputs and model work.</p>
+<p>The refit depends on the existing <a href="#ebs-pollock-2026">assessment data checklist</a>, <a href="#wtagere-update">WtAgeRe update</a>, and matched-input task (<code>ebs26-input-freeze</code>). The six <a href="#plan-team-diagnostics">Plan Team diagnostic areas</a> remain under <code>ebs26-plan-team</code>; this development checklist links to that work. DSEM evaluation remains exploratory, and the ordinary <code>dev</code> package and DSEM integration branch have separate validation records.</p>
 <hr>
 </section>
 </section>

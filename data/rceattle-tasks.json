@@ -1,0 +1,73 @@
+{
+  "updated": "2026-10-01",
+  "scope": "Public development task descriptions only; assessment results, evidence files and drafts remain private.",
+  "status_labels": {
+    "todo": "To do",
+    "progress": "In progress",
+    "review": "Waiting",
+    "done": "Done"
+  },
+  "repository": "https://github.com/grantdadams/Rceattle",
+  "tasks": [
+    {
+      "id": "rceattle-version-validation",
+      "title": "Rceattle: validate the 5.45.1 package update",
+      "status": "done",
+      "kind": "software-validation",
+      "project": "Rceattle development",
+      "description": "Completed the September 28 numerical comparison of dev 5.45.1 with the prior 5.23.0 baseline using matched inputs, parameter checks, refits and reference models. Compiler-warning cleanup has its own open task.",
+      "completion_criteria": "Retain pinned revisions, separate package libraries, matched inputs and parameters, likelihood and prediction comparisons, fresh-process refits, reference checks, exit codes and logs. Verify maximum gradients below 1e-4 and positive-definite Hessians; record compiler warnings separately.",
+      "status_basis": "September 28 package-comparison records were rechecked on October 1. This Done status covers numerical equivalence for the tested baseline."
+    },
+    {
+      "id": "rceattle-compiler-warnings",
+      "title": "Rceattle: resolve compiler warnings",
+      "status": "todo",
+      "kind": "software-maintenance",
+      "project": "Rceattle development",
+      "description": "Follow up on the compiler warnings recorded during the dev 5.45.1 build, including Boolean bitwise operators and Eigen dependency warnings.",
+      "completion_criteria": "Identify package and dependency causes, apply and review the appropriate fixes, rebuild from a clean process without warnings, and repeat the matched-baseline and reference checks. Archive the build log, exit status, source revision, gradients and Hessian checks.",
+      "status_basis": "The saved September 28 installation log contains compiler warnings; warning-free compilation remains open."
+    },
+    {
+      "id": "rceattle-dsem-guide",
+      "title": "Rceattle: document DSEM and covariate inputs",
+      "status": "done",
+      "kind": "documentation",
+      "project": "Rceattle development",
+      "description": "Completed the local Quarto guide and fishery-wiki integration covering dynamic structural equation models (DSEM), equations, flags, annual covariates, lags and recruitment-year alignment. The guide distinguishes dev 5.45.1 from the separate dsem-v5-integration branch.",
+      "completion_criteria": "Retain editable source, pinned implementation links, reproducible input examples and a verified HTML render. Check navigation, figures, internal links and wiki integration. Keep the guide and fitted assessment examples in the private workspace.",
+      "status_basis": "September 28 guide, render-validation records and local wiki integration were rechecked on October 1."
+    },
+    {
+      "id": "rceattle-dsem-evaluation",
+      "title": "Rceattle: evaluate DSEM recruitment covariates",
+      "status": "progress",
+      "kind": "model-development",
+      "project": "Rceattle development",
+      "description": "Continue the exploratory cold-pool and late-summer SST evaluation on the pinned DSEM integration branch. Pilot fits and effect plots are available locally; predictive checks, sensitivity analysis and assessment-use review remain open.",
+      "completion_criteria": "Version covariate sources, units, scaling, missing values and cohort alignment. Compare models against a reference with the same environmental likelihood; assess forecast performance, influential cohorts and effects on recruitment and biomass. Verify gradients below 1e-4 and positive-definite Hessians, and document the projection-year and DSEM MSE restrictions before extending use.",
+      "status_basis": "September 28 pilot-fit and methods records support completed exploratory work and remaining evaluation."
+    },
+    {
+      "id": "rceattle-spmr-handoff",
+      "title": "Rceattle: resolve spmR projection handoff checks",
+      "status": "review",
+      "kind": "projection-validation",
+      "project": "Rceattle development",
+      "description": "The projection replay is reproducible. Assessment use waits for resolution of recruitment variability, population-weight schedules and starting-year alignment in the Rceattle-to-spmR handoff.",
+      "completion_criteria": "Document recruitment units and sex allocation, population/spawning/fishery weights, missing male-weight treatment, starting abundance year and forecast-year alignment. Compare biomass and harvest outputs with matched native projections and the ADMB comparison. Retain input provenance, reproducible checks and a reviewed interpretation before using management tables.",
+      "status_basis": "The September 29 validation summary records successful execution and unresolved scientific checks; follow-up fixes require verification."
+    },
+    {
+      "id": "rceattle-2026-refit",
+      "title": "Rceattle: refit Model 26.0 with accepted 2026 inputs",
+      "status": "review",
+      "kind": "assessment-model-update",
+      "project": "Rceattle development",
+      "description": "The private 2026 draft is prepared. The refit waits for accepted catch, survey and age-composition inputs, the WtAgeRe weight update and the matched-input check. Link the resulting fit to the existing Plan Team diagnostics task.",
+      "completion_criteria": "Complete the assessment data tasks and ebs26-wtage-re, then freeze the inputs under ebs26-input-freeze. Pin the Rceattle revision and configuration; compile without warnings and verify logs, exit status, maximum gradient below 1e-4 and a positive-definite Hessian. Complete ebs26-plan-team and projection validation, compare with Model 23.0, and retain the draft and results privately until release is authorized.",
+      "status_basis": "The private 2026 draft and input register record outstanding accepted inputs and model work."
+    }
+  ]
+}

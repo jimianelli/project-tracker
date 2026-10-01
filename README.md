@@ -7,10 +7,11 @@ Jim's project hub, kanban board, R package inventory, and Quarto project log.
 | File | Purpose |
 |---|---|
 | `index.html` | Navigation and dated project overview |
-| `kanban.html` | Four-column board with 14 preserved project cards and 13 assessment cards |
+| `kanban.html` | Four-column board with 14 preserved project cards, 13 assessment cards and six Rceattle development cards |
 | `project_log.qmd` | Editable log, ten assessment data gaps, completion criteria, and historical project notes |
 | `project_log.html` | Rendered project log |
 | `packages.html` | Inventory of 22 R packages with repository and documentation links |
+| `data/rceattle-tasks.json` | Six Rceattle development task definitions with stable `rceattle-*` identifiers |
 | `data/assessment-tasks.json` | Thirteen assessment task definitions with stable `ebs26-*` identifiers |
 | `data/assessment-data-gaps.csv` | Ten data tasks with completion criteria |
 
@@ -19,6 +20,12 @@ Jim's project hub, kanban board, R package inventory, and Quarto project log.
 Open `kanban.html`, move cards, add notes, or create custom cards. State is saved under the existing `kanban_state` and `kanban_updated` browser-local keys. Saved cards retain their order, column and notes. Newly supplied cards are appended after saved cards in their initial columns. Custom cards are restored as plain text. State stays in the current browser and site origin; the dated project log is maintained separately.
 
 Initial assessment status on September 29, 2026: eight data tasks and the diagnostics task are To Do; catch extraction, final ATS ages, and the WtAgeRe model update are Waiting; legacy-workspace preservation and repository archival is Done. The 14 earlier project cards are retained. Their published status comes from the historical February 20 log; browser-saved positions take precedence.
+
+## Rceattle development
+
+Six dedicated cards added October 1, 2026 track numerical package-update validation (Done), compiler-warning cleanup (To Do), DSEM documentation and local wiki integration (Done), DSEM covariate evaluation (In Progress), the spmR projection handoff (Waiting), and the 2026 Model 26.0 refit (Waiting). Status comes from saved September 28–29 development records rechecked on October 1. Numerical validation and warning-free compilation have separate tasks. The refit depends on the assessment input tasks and WtAgeRe; the existing Plan Team diagnostics card retains its stable ID and scope.
+
+Keep `data/rceattle-tasks.json`, the six board cards, the hub summary and the Rceattle section of the Quarto log synchronized. Public entries contain task descriptions and status; assessment results, evidence files and drafts remain private. Existing saved positions and notes use the same browser-local keys; the new cards appear automatically when the board loads.
 
 ## Assessment checklist
 
